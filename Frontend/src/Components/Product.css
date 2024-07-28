@@ -1,0 +1,56 @@
+/* Product.css */
+
+.Product-Container {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.Product {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: center; /* To center the items */
+}
+
+.Product-Filter-Options {
+  display: flex;
+  gap: 100px;
+}
+
+.Product-Filter-Options select {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+  padding: 5px 20px;
+  font-weight: 500;
+}
+
+.Product-Wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Pagination button.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.Pagination {
+  margin: 50px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.Pagination button {
+  padding: 10px 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: transparent;
+}

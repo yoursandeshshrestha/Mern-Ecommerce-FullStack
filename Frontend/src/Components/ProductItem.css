@@ -1,0 +1,28 @@
+/* ProductItem.css */
+
+.ProductItem-Container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  /* overflow: hidden; */
+}
+
+.ProductItem-Container img {
+  width: 280px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.ProductName {
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.ProductCategory {
+  color: gray;
+}
+
+.ProductPrice {
+  color: black;
+  font-weight: bold;
+}

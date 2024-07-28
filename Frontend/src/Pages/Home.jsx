@@ -1,9 +1,14 @@
 import React from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import Product from "../Components/Product";
 
 function Home() {
-  return <div></div>;
+  return (
+    <>
+      <div className="Home">
+        <Product />
+      </div>
+    </>
+  );
 }
 
 export default Home;
