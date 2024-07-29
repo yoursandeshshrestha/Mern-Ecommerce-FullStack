@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import "./Auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 

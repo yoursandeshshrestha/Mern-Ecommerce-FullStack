@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Register from "./Pages/Register";
-import Login from "./Pages/Login";
-import Home from "./Pages/Home";
-import Navbar from "./Components/Navbar";
-import Category from "./Pages/Category";
-import Cart from "./Pages/Cart";
-import ProductDetail from "./Pages/ProductDetail";
-import Footer from "./Components/Footer";
+import Register from "./Pages/Auth/Register";
+import Login from "./Pages/Auth/Login";
+import Home from "./Pages/Home/Home";
+import Navbar from "./Components/Navbar/Navbar";
+import Category from "./Pages/Category/Category";
+import Cart from "./Pages/Cart/Cart";
+import ProductDetail from "./Pages/ProductDetail/ProductDetail";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (

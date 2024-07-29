@@ -1,0 +1,105 @@
+.Navbar {
+  width: 100%;
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  transition: 0.7s ease;
+}
+
+.Navbar:hover {
+  background-color: white;
+}
+
+/* When user scroll the navbar will get bg color */
+.Navbar.scrolled {
+  background-color: white;
+}
+
+.Navbar-Menu,
+.Navbar-More-Menu,
+.logo {
+  flex: 1;
+}
+
+.logo {
+  text-align: center;
+}
+
+.Navbar-More-Menu {
+  justify-content: flex-end;
+}
+
+.Navbar .logo p {
+  color: black;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.Navbar-Menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  color: #626262;
+  font-weight: 500;
+  list-style: none;
+}
+
+.Navbar-Menu li {
+  cursor: pointer;
+}
+
+.Navbar-Menu li:hover {
+  color: var(--Hover-color);
+}
+
+.Navbar-More-Menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.Navbar-More-Menu button {
+  outline: none;
+  /* border: 1px solid #7a7a7a; */
+  border: none;
+  border-radius: 10px;
+  padding: 5px 20px;
+  color: #515151;
+  font-size: 18px;
+  color: #626262;
+  font-weight: 500;
+  background-color: white;
+  cursor: pointer;
+}
+
+.Navbar-More-Menu {
+  position: relative;
+}
+
+.Navbar-More-Menu .cart-container img,
+.Navbar-More-Menu img {
+  width: 20px;
+  height: 20px;
+}
+
+.cart-container {
+  position: relative;
+}
+
+.Navbar-Cart-Count {
+  position: absolute;
+  right: 38px;
+  top: -10px;
+  width: 19px;
+  height: 19px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 11px;
+  font-size: 14px;
+  color: white;
+  background-color: red;
+}

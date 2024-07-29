@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import testData from "../assets/FrontendAssets/all_product";
-import ProductItem from "./ProductItem";
+import testData from "../../assets/FrontendAssets/all_product";
+import ProductItem from "../ProductItem/ProductItem";
 import "./Product.css";
 
 const PRODUCTS_PER_PAGE = 15;

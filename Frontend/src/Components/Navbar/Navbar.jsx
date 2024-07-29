@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-
-import cartImage from "../assets/FrontendAssets/cart_icon.png";
-import userImage from "../assets/FrontendAssets/user.png";
-import loveImage from "../assets/FrontendAssets/love.png";
+import "./Navbar.css";
+import cartImage from "../../assets/FrontendAssets/cart_icon.png";
+import userImage from "../../assets/FrontendAssets/user.png";
+import loveImage from "../../assets/FrontendAssets/love.png";
 
 import { Link } from "react-router-dom";
 
