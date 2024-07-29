@@ -5,8 +5,13 @@ function Home() {
   return (
     <>
       <div className="Home">
-        <Product />
+        <h3 className="Title">New Arrivals</h3>
+        <div className="Home-Options">
+          <p>Men Collection</p>
+          <p>Women Collection</p>
+        </div>
       </div>
+      <Product />
     </>
   );
 }

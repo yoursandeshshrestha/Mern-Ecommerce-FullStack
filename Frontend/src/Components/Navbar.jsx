@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import cartImage from "../assets/FrontendAssets/cart_icon.png";
 import userImage from "../assets/FrontendAssets/user.png";
 import loveImage from "../assets/FrontendAssets/love.png";
@@ -6,11 +7,23 @@ import loveImage from "../assets/FrontendAssets/love.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="Navbar">
-      <div className="logo">
-        <p>E-commerce</p>
-      </div>
+    <div className={`Navbar ${scrolled ? "scrolled" : ""}`}>
       <ul className="Navbar-Menu">
         <Link to={"/"}>
           <li>Home</li>
@@ -25,6 +38,9 @@ function Navbar() {
           <li>Kids</li>
         </Link>
       </ul>
+      <div className="logo">
+        <p>E-commerce</p>
+      </div>
       <div className="Navbar-More-Menu">
         <Link to={"/love"}>
           <img src={loveImage} alt="cart" />

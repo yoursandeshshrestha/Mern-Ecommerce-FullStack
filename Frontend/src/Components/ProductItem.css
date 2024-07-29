@@ -3,8 +3,9 @@
 .ProductItem-Container {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  align-items: center;
   background-color: #fff;
-  /* overflow: hidden; */
 }
 
 .ProductItem-Container img {
@@ -14,15 +15,14 @@
 }
 
 .ProductName {
-  font-weight: bold;
+  font-weight: 400;
   margin-top: 6px;
-}
-
-.ProductCategory {
-  color: gray;
+  color: rgb(94, 94, 100);
 }
 
 .ProductPrice {
   color: black;
-  font-weight: bold;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 10px;
 }

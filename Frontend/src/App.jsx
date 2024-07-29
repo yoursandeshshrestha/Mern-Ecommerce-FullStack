@@ -7,6 +7,7 @@ import Navbar from "./Components/Navbar";
 import Category from "./Pages/Category";
 import Cart from "./Pages/Cart";
 import ProductDetail from "./Pages/ProductDetail";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -19,11 +20,10 @@ function App() {
         <Route path="/men" element={<Category />} />
         <Route path="/women" element={<Category />} />
         <Route path="/kids" element={<Category />} />
-        <Route path="/product" element={<ProductDetail />}>
-          <Route path=":productID" element={<ProductDetail />} />
-        </Route>
         <Route path="/cart" element={<Cart />} />
+        <Route path="/:product" element={<ProductDetail />} />
       </Routes>
+      <Footer />
     </>
   );
 }

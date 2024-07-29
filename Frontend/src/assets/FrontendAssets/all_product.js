@@ -98,7 +98,7 @@ let all_product = [
   },
   {
     id: 7,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Striped Flutter",
     category: "women",
     size: "s",
     color: "black",
@@ -108,7 +108,7 @@ let all_product = [
   },
   {
     id: 8,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Striped Flutter",
     category: "women",
     size: "m",
     color: "white",
@@ -118,7 +118,7 @@ let all_product = [
   },
   {
     id: 9,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Striped Flutter ",
     category: "women",
     size: "l",
     color: "black",
@@ -128,7 +128,7 @@ let all_product = [
   },
   {
     id: 10,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Striped Flutter ",
     category: "women",
     size: "s",
     color: "white",
@@ -138,7 +138,7 @@ let all_product = [
   },
   {
     id: 11,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Striped Flutter ",
     category: "women",
     size: "m",
     color: "black",
@@ -148,7 +148,7 @@ let all_product = [
   },
   {
     id: 12,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Striped Flutter S",
     category: "women",
     size: "l",
     color: "white",
@@ -158,7 +158,7 @@ let all_product = [
   },
   {
     id: 13,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "s",
     color: "black",
@@ -168,7 +168,7 @@ let all_product = [
   },
   {
     id: 14,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "m",
     color: "white",
@@ -178,7 +178,7 @@ let all_product = [
   },
   {
     id: 15,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "l",
     color: "black",
@@ -188,7 +188,7 @@ let all_product = [
   },
   {
     id: 16,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "s",
     color: "white",
@@ -198,7 +198,7 @@ let all_product = [
   },
   {
     id: 17,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "m",
     color: "black",
@@ -208,7 +208,7 @@ let all_product = [
   },
   {
     id: 18,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "l",
     color: "white",
@@ -218,7 +218,7 @@ let all_product = [
   },
   {
     id: 19,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "s",
     color: "black",
@@ -228,7 +228,7 @@ let all_product = [
   },
   {
     id: 20,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green ",
     category: "men",
     size: "m",
     color: "white",
@@ -238,7 +238,7 @@ let all_product = [
   },
   {
     id: 21,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid",
     category: "men",
     size: "l",
     color: "black",
@@ -248,7 +248,7 @@ let all_product = [
   },
   {
     id: 22,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "s",
     color: "white",
@@ -258,7 +258,7 @@ let all_product = [
   },
   {
     id: 23,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "m",
     color: "black",
@@ -268,7 +268,7 @@ let all_product = [
   },
   {
     id: 24,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Men Green Solid ",
     category: "men",
     size: "l",
     color: "white",
