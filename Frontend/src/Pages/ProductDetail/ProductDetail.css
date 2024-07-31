@@ -25,6 +25,10 @@
   gap: 15px;
 }
 
+.ProductDetail-Side h2 {
+  margin-top: 15px;
+}
+
 .ProductDetail-Side .Rating-Section {
   display: flex;
   gap: 15px;
@@ -36,8 +40,17 @@
 }
 
 .ProductDetail-Price {
+  display: flex;
+  gap: 15px;
+  align-items: center;
   font-size: 24px;
-  color: rgb(99, 164, 197);
+  /* background-color: pink; */
+}
+
+.ProductDetail-Price p:nth-child(2) {
+  font-size: 20px;
+  color: gray;
+  text-decoration: line-through;
 }
 
 .ProductDetail-Availability span {
@@ -45,7 +58,7 @@
 }
 
 .ProductDetail-Side p:first-child {
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
 
 .ProductDetail-Side p:first-child a {
