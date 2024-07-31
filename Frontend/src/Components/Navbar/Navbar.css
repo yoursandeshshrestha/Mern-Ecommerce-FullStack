@@ -13,7 +13,6 @@
   background-color: white;
 }
 
-/* When user scroll the navbar will get bg color */
 .Navbar.scrolled {
   background-color: white;
 }
@@ -63,7 +62,6 @@
 
 .Navbar-More-Menu button {
   outline: none;
-  /* border: 1px solid #7a7a7a; */
   border: none;
   border-radius: 10px;
   padding: 5px 20px;

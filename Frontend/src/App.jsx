@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Outlet } from "react-router-dom";
 import Register from "./Pages/Auth/Register";
 import Login from "./Pages/Auth/Login";
 import Home from "./Pages/Home/Home";
@@ -9,11 +9,20 @@ import Cart from "./Pages/Cart/Cart";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import Footer from "./Components/Footer/Footer";
 
-function App() {
+const Layout = () => {
   return (
     <>
       <Navbar />
-      <Routes>
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
@@ -22,9 +31,8 @@ function App() {
         <Route path="/kids" element={<Category />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/:product" element={<ProductDetail />} />
-      </Routes>
-      <Footer />
-    </>
+      </Route>
+    </Routes>
   );
 }
 
