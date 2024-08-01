@@ -7,6 +7,8 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [accountType, setAccountType] = useState("Customer");
+  const [shopName, setShopName] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -21,6 +23,8 @@ function Register() {
           username,
           email,
           password,
+          accountType,
+          shopName: accountType === "Seller" ? shopName : undefined,
         }
       );
       setLoading(false);
@@ -28,6 +32,8 @@ function Register() {
       setUsername("");
       setEmail("");
       setPassword("");
+      setAccountType("Customer");
+      setShopName("");
     } catch (error) {
       setError(error.response?.data?.message || "Registration failed");
       setLoading(false);
@@ -49,9 +55,7 @@ function Register() {
               id="username"
               placeholder="John Doe"
               value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="Form-Section">
@@ -62,9 +66,7 @@ function Register() {
               id="email"
               placeholder="johndoe@something.com"
               value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="Form-Section">
@@ -75,11 +77,55 @@ function Register() {
               id="password"
               placeholder=".................."
               value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <div className="Form-Section">
+            <label>Register as</label>
+            <div className="Form-Section-accountType">
+              <label
+                className={`accountType-selection ${
+                  accountType === "Customer" ? "selected" : ""
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="accountType"
+                  value="Customer"
+                  checked={accountType === "Customer"}
+                  onChange={(e) => setAccountType(e.target.value)}
+                />
+                Customer
+              </label>
+              <label
+                className={`accountType-selection ${
+                  accountType === "Seller" ? "selected" : ""
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="accountType"
+                  value="Seller"
+                  checked={accountType === "Seller"}
+                  onChange={(e) => setAccountType(e.target.value)}
+                />
+                Seller
+              </label>
+            </div>
+          </div>
+          {accountType === "Seller" && (
+            <div className="Form-Section">
+              <label htmlFor="shopName">Shop Name</label>
+              <input
+                type="text"
+                name="shopName"
+                id="shopName"
+                placeholder="Your Shop Name"
+                value={shopName}
+                onChange={(e) => setShopName(e.target.value)}
+              />
+            </div>
+          )}
           <button
             className="Auth-Submit-Button"
             type="submit"

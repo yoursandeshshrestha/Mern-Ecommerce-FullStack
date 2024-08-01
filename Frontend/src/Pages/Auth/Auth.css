@@ -8,7 +8,6 @@
 
 .Auth-Wrapper {
   width: 450px;
-  height: auto;
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -50,13 +49,34 @@
   color: #111827;
 }
 
-.input {
-  padding: 0.625rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
+.Form-Section-accountType {
+  display: flex;
+  gap: 10px;
+}
+
+.accountType-selection {
+  transition: background-color 0.3s, color 0.3s;
   width: 100%;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafbfc;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: #24292e;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.accountType-selection input {
+  display: none;
+}
+
+.accountType-selection.selected {
+  background-color: #edeff2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
 }
 
 .Auth-Submit-Button {

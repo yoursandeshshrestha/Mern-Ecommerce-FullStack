@@ -1,31 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductDetail.css";
+import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Star from "../../assets/FrontendAssets/star_icon.png";
 import StarDull from "../../assets/FrontendAssets/star_dull_icon.png";
 import love from "../../assets/FrontendAssets/love.png";
-import all_product from "../../assets/FrontendAssets/all_product";
 
 function ProductDetail() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
   const { id } = useParams();
-  const product = all_product.find((item) => item.id === parseInt(id));
 
-  if (!product) {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/products/${id}`
+        );
+        console.log(response);
+        setData(response.data);
+      } catch (error) {
+        setError(error.message);
+        console.log(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (error) {
+    return <div className="ProductDetail-Container">Error: {error}</div>;
+  }
+
+  if (!data) {
     return <div className="ProductDetail-Container">Product not found</div>;
   }
+
+  const imgLink = `${import.meta.env.VITE_IMAGE_URL}/uploads/${data.image}`;
 
   return (
     <div className="ProductDetail-Container">
       <div className="ProductDetail-Wrapper">
-        <img src={product.image} alt="Product Image" className="Main-Image" />
+        <img src={imgLink} alt={`${data.name} Image`} className="Main-Image" />
         <div className="ProductDetail-Side">
           <p>
             <Link to="/">Home</Link> | <Link to="/product">Product</Link> |
-            <Link to="/women"> {product.category}</Link> |
-            <Link to="/product-name"> {product.name}</Link>
+            <Link to={`/women/${data.category}`}> {data.category}</Link> |
+            <Link to={`/product/${data.name}`}> {data.name}</Link>
           </p>
           <div className="ProductDetail-SectionOne">
-            <h2>{product.name}</h2>
+            <h2>{data.name}</h2>
             <div className="Rating-Section">
               <ul>
                 {[...Array(4)].map((_, index) => (
@@ -33,7 +57,7 @@ function ProductDetail() {
                     <img src={Star} alt="Star" />
                   </li>
                 ))}
-                <li>
+                <li key="star-dull">
                   <img src={StarDull} alt="Star Dull" />
                 </li>
               </ul>
@@ -43,27 +67,27 @@ function ProductDetail() {
           <div className="ProductDetail-Price">
             <p className="ProductDetail-New">
               <span>&#8377;</span>
-              {product.new_price}
+              {data.price}
             </p>
             <p className="ProductDetail-Old">
               <span>&#8377;</span>
-              {product.old_price}
+              {data.oldPrice}
             </p>
           </div>
           <div className="ProductDetail-Info">
             <p className="ProductDetail-Availability">
               Availability |{" "}
-              <span>{product.stock > 0 ? "In Stock" : "Out of Stock"}</span>
+              <span>{data.stock > 0 ? "In Stock" : "Out of Stock"}</span>
             </p>
-            <p className="ProductDetail-Availability">
-              Size | <span>{product.size}</span>
+            <p className="ProductDetail-Size">
+              Size | <span>{data.size}</span>
             </p>
           </div>
-          <p>{product.description}</p>
+          <p>{data.description}</p>
           <div className="ProductDetail-Buttons">
             <button>Add To Cart</button>
             <button>
-              <img src={love} alt="Love" />
+              <img src={love} alt="Add To Wishlist" />
               Add To Wishlist
             </button>
           </div>
