@@ -12,7 +12,10 @@ function ProductItem(props) {
         <div className="ProductItem-Info">
           <p className="ProductName">{props.name}</p>
           {/* <p className="ProductCategory">{props.category}</p> */}
-          <p className="ProductPrice">{props.new_price}$</p>
+          <p className="ProductPrice">
+            <span>&#8377;</span>
+            {props.new_price}
+          </p>
         </div>
       </Link>
     </div>

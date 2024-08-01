@@ -10,7 +10,7 @@
 
 .ProductItem-Container img {
   width: 280px;
-  height: 300px;
+  height: auto;
   object-fit: cover;
 }
 

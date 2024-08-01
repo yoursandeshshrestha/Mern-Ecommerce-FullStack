@@ -56,31 +56,13 @@
 
 .Navbar-More-Menu {
   display: flex;
-  align-items: center;
   gap: 30px;
-}
-
-.Navbar-More-Menu button {
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  padding: 5px 20px;
-  color: #515151;
-  font-size: 18px;
-  color: #626262;
-  font-weight: 500;
-  background-color: white;
-  cursor: pointer;
-}
-
-.Navbar-More-Menu {
   position: relative;
 }
 
 .Navbar-More-Menu .cart-container img,
 .Navbar-More-Menu img {
   width: 20px;
-  height: 20px;
 }
 
 .cart-container {

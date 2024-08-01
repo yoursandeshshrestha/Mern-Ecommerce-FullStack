@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { userContext } from "../../Context/userContext";
 import "./Navbar.css";
 import cartImage from "../../assets/FrontendAssets/cart_icon.png";
 import userImage from "../../assets/FrontendAssets/user.png";
 import loveImage from "../../assets/FrontendAssets/love.png";
-
 import { Link } from "react-router-dom";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { currentUser } = useContext(userContext);
+  console.log(currentUser);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,27 +36,38 @@ function Navbar() {
         <Link to={"/women"}>
           <li>Women</li>
         </Link>
-        <Link to={"/kids"}>
-          <li>Kids</li>
-        </Link>
       </ul>
       <div className="logo">
         <p>E-commerce</p>
       </div>
       <div className="Navbar-More-Menu">
-        <Link to={"/love"}>
-          <img src={loveImage} alt="cart" />
-        </Link>
-        <div className="cart-container">
-          <Link to={"/cart"}>
-            {" "}
-            <img src={cartImage} alt="cart" />
+        {currentUser && currentUser.accountType === "Customer" && (
+          <>
+            <p>{currentUser.email}</p>
+            <Link to={"/love"}>
+              <img src={loveImage} alt="love" />
+            </Link>
+            <div className="cart-container">
+              <Link to={"/cart"}>
+                <img src={cartImage} alt="cart" />
+              </Link>
+            </div>
+            <div className="Navbar-Cart-Count">0</div>
+            <Link to={"/customer/dashboard"}>
+              <img src={userImage} alt="user" />
+            </Link>
+          </>
+        )}
+        {currentUser && currentUser.accountType === "Seller" && (
+          <Link to={"/seller/dashboard"}>
+            <p>Dashboard</p>
           </Link>
-        </div>
-        <div className="Navbar-Cart-Count">0</div>
-        <Link to={"/login"}>
-          <img src={userImage} alt="cart" />
-        </Link>
+        )}
+        {currentUser === null && (
+          <Link to={"/login"}>
+            <img src={userImage} alt="user" />
+          </Link>
+        )}
       </div>
     </div>
   );

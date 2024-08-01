@@ -1,8 +1,9 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { userContext } from "../../Context/userContext";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -10,6 +11,8 @@ function Login() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const { setCurrentUser } = useContext(userContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +29,8 @@ function Login() {
       setLoading(false);
       console.log(response.data);
       Cookies.set("token", response.data.token, { expires: 3 });
-      navigate("/home");
+      setCurrentUser(response.data);
+      navigate("/");
     } catch (error) {
       console.error("There was an error logging in!", error);
       setError(error.response?.data?.message || "Login failed");
