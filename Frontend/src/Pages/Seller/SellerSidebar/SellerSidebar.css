@@ -1,0 +1,42 @@
+.SellerSidebar-Container {
+  width: 300px;
+  height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.SellerSidebar-Top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.SellerSidebar-Dashboard,
+.SellerSidebar-Product,
+.SellerSidebar-Profile,
+.SellerSidebar-Logout {
+  display: flex;
+  gap: 20px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.SellerSidebar-Dashboard img,
+.SellerSidebar-Product img,
+.SellerSidebar-Profile img,
+.SellerSidebar-Logout img {
+  width: 30px;
+}
+
+.SellerSidebar-Dashboard:hover,
+.SellerSidebar-Product:hover,
+.SellerSidebar-Profile:hover,
+.SellerSidebar-Logout:hover {
+  background-color: #f0f0f0;
+}

@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { currentUser } = useContext(userContext);
-  console.log(currentUser);
 
   useEffect(() => {
     const handleScroll = () => {
