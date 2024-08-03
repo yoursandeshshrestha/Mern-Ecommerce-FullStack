@@ -1,0 +1,221 @@
+.CreateProduct-Container {
+  width: 100%;
+  height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.CreateProduct-TopSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CreateProduct-heading img {
+  width: 30px;
+}
+
+.CreateProduct-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.CreateProduct-TopSection button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: none;
+  outline: none;
+  padding: 13px 30px;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 15px;
+  background-color: #9feea7;
+  cursor: pointer;
+}
+
+.CreateProduct-TopSection button img {
+  width: 20px;
+}
+
+.CreateProduct-Container h2 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.CreateProduct-Container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+
+input,
+textarea {
+  border-radius: 5px;
+  display: block;
+  margin-top: 3px;
+  width: 100%;
+  background-color: rgb(238, 238, 238);
+  border: 1px solid rgb(181, 189, 196);
+  font-size: 16px;
+  line-height: 24px;
+  padding: 7px 8px;
+  color: rgb(8, 9, 10);
+  box-shadow: none;
+  :focus {
+    background-color: #fff;
+    border-color: #3b49df;
+    box-shadow: 1px 1px 0 #3b49df;
+  }
+}
+
+.CreateProduct-General {
+  background: rgb(249, 249, 249);
+  width: 600px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.CreateProduct-General p,
+.Price-Section p,
+.Image-Container p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.General-second-input textarea {
+  width: 100%;
+  height: 150px;
+  resize: none;
+}
+
+/* ========== size-gender Section =========== */
+
+.size-gender-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.size-section,
+.gender-section {
+  flex: 1;
+}
+
+.size-section-buttons,
+.gender-section-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.size-section-buttons button,
+.gender-section-buttons label {
+  margin-top: 5px;
+  flex: 1;
+  background-color: #fafbfc;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: #24292e;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+.size-section-buttons button {
+  padding: 12px 0;
+}
+
+.gender-section-buttons label {
+  padding: 10px 0;
+}
+
+.size-section-buttons button.selected,
+.gender-section-buttons label.selected {
+  background-color: #9feea7;
+  color: #000000;
+}
+
+.gender-section-buttons input {
+  display: none;
+}
+
+/* ========== Price Section =========== */
+/* ========== Price Section =========== */
+
+.Price-Section {
+  margin-top: 10px;
+}
+
+.price-section-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-top: 15px;
+  /* background-color: pink; */
+}
+
+.price-first-input,
+.price-second-input {
+  flex: 1;
+}
+
+.price-first-input input,
+.price-second-input input {
+  margin-top: 5px;
+}
+
+/* ========== Main wrapper Section =========== */
+
+.CreateProduct-Main-Wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.RightSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Image-Container {
+  background: rgb(249, 249, 249);
+  border-radius: 5px;
+  /* padding: 20px; */
+}
+
+.Image-input input {
+  display: block;
+  margin-top: 10px;
+}
+
+.Image-Preview {
+  background: #f9f9f9;
+  margin-top: 10px;
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+  /* background: pink; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(181, 189, 196);
+}
+
+.Image-Preview img {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}

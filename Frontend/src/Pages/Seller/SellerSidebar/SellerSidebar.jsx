@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { userContext } from "../../../Context/userContext.jsx";
 import dashboardIcon from "../../../assets/SellerAsset/dashboard.png";
 import productIcon from "../../../assets/SellerAsset/product.png";
+import createProductIcon from "../../../assets/SellerAsset/createproduct.png";
 import profileIcon from "../../../assets/SellerAsset/profile.png";
 import logoutIcon from "../../../assets/SellerAsset/logout.png";
 
@@ -26,9 +27,13 @@ function SellerSidebar() {
           <img src={dashboardIcon} alt="icon" />
           <p>Dashboard</p>
         </div>
+        <div className="SellerSidebar-CreateProduct">
+          <img src={createProductIcon} alt="icon" />
+          <p> Create Product</p>
+        </div>
         <div className="SellerSidebar-Product">
           <img src={productIcon} alt="icon" />
-          <p>Product</p>
+          <p>All Product</p>
         </div>
         <div className="SellerSidebar-Profile">
           <img src={profileIcon} alt="icon" />

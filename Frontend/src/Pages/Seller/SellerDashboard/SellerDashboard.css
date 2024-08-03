@@ -1,0 +1,11 @@
+.SellerDashboard-Container {
+  width: 100%;
+  height: 100vh;
+  /* background-color: #ffc0cb; */
+  padding: 30px;
+}
+
+.SellerDashboard-Wrapper h2 {
+  font-weight: 500;
+  font-size: 20px;
+}
