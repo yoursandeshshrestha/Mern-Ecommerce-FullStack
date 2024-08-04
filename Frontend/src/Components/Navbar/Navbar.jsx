@@ -58,7 +58,7 @@ function Navbar() {
           </>
         )}
         {currentUser && currentUser.accountType === "Seller" && (
-          <Link to={"/seller/dashboard"}>
+          <Link to={"/dashboard"}>
             <p>Dashboard</p>
           </Link>
         )}

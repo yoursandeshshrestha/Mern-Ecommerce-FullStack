@@ -132,9 +132,31 @@ const getCategoryProduct = async (req, res) => {
   }
 };
 
+// ======================== GET Product by SellerID ==================== //
+// ==== GET : api/products/:sellerID
+// ==== UNPROTECTED
+
+const productBySellerID = async (req, res) => {
+  try {
+    const { sellerID } = req.params;
+    const product = await productModel.find({ seller: sellerID });
+    if (product.length === 0) {
+      return res.status(404).json({ message: "No products found" });
+    }
+
+    res.status(200).json({ message: "success", product });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error Fetching Products, please try again later",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createProduct,
   getProducts,
   getSingleProduct,
   getCategoryProduct,
+  productBySellerID,
 };

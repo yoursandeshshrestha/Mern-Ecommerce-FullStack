@@ -1,0 +1,134 @@
+/* ======= Main Container ======= */
+
+.SellerProfile-Container {
+  width: 100%;
+  height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ====== Top section ====== */
+
+.SellerProile-Nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.SellerProfile-heading img {
+  width: 30px;
+}
+
+.SellerProfile-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.SellerProile-Nav button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: none;
+  outline: none;
+  padding: 13px 30px;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 8px;
+  background-color: #9feea7;
+  cursor: pointer;
+}
+
+.SellerProile-Nav button img {
+  width: 20px;
+}
+
+.SellerProfile-heading h2 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+/* ====== Update Information ====== */
+
+.update-info-container {
+  width: 600px;
+  /* background-color: #f5f5f7;
+  padding: 40px;
+  border-radius: 8px; */
+}
+
+.update-info-container p {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.group-firsttwo-input {
+  display: flex;
+  gap: 10px;
+}
+
+.group-firsttwo-input .update-first-input {
+  flex: 1;
+}
+
+/* .update-info-container .update-info-button {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 13px 30px;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 8px;
+  background-color: #9feea7;
+  cursor: pointer;
+} */
+
+.update-third-input,
+.update-fourth-input,
+.update-fifth-input {
+  margin-top: 10px;
+}
+
+.update-info-button {
+  margin-top: 15px;
+}
+
+.button-38 {
+  background-color: #ffffff;
+  border: 0;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  text-decoration: none #d1d5db solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-38:hover {
+  background-color: rgb(249, 250, 251);
+}
+
+.button-38:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button-38:focus-visible {
+  box-shadow: none;
+}

@@ -36,3 +36,7 @@ body {
 .content-wrapper-main {
   margin-top: 70px;
 }
+
+.SellerLayout-Container {
+  display: flex;
+}

@@ -51,8 +51,9 @@
 }
 
 /* ====== Form Section ====== */
-.CreateProduct-Container form {
+.CreateProduct-Main-Wrapper {
   display: flex;
+  align-items: flex-start;
   gap: 10px;
 }
 

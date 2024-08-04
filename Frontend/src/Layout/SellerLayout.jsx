@@ -1,8 +1,17 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import SellerSiderbar from "../Pages/Seller/SellerSidebar/SellerSidebar";
+import SellerDashboard from "../Pages/Seller/SellerDashboard/SellerDashboard";
 
 const SellerLayout = ({ children }) => {
-  return <Outlet>{children}</Outlet>;
+  const location = useLocation();
+  return (
+    <div className="SellerLayout-Container">
+      <SellerSiderbar />
+      {location.pathname === "/dashboard" && <SellerDashboard />}
+      <Outlet>{children}</Outlet>
+    </div>
+  );
 };
 
 export default SellerLayout;

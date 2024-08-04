@@ -1,11 +1,42 @@
 .SellerDashboard-Container {
   width: 100%;
   height: 100vh;
-  /* background-color: #ffc0cb; */
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .SellerDashboard-Wrapper h2 {
   font-weight: 500;
   font-size: 20px;
+}
+
+.SellerDashboard-Itemone {
+  padding: 10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-radius: 10px;
+  background-color: #efeff1;
+}
+
+.SellerDashboard-Itemone img {
+  width: 30px;
+}
+
+.SellerDashboard-Itemone p {
+  font-size: 16px;
+}
+
+.SellerDashboard-Itemone h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.SellerDashboard-First {
+  display: flex;
+  gap: 15px;
 }
