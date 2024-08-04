@@ -29,11 +29,14 @@
 /* ======= Main Product Container ======= */
 
 .SellerAllProduct-Product-Container {
+  padding-top: 20px;
+  padding-right: 20px;
+  overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   border-radius: 6px;
-  background-color: #f5f5f7;
+  /* background-color: #f5f5f7; */
   width: 100%;
   height: 100vh;
   /* background: pink; */
@@ -42,28 +45,120 @@
 /* ====== Product Section ====== */
 
 .SellerAllProduct-Product {
-  width: 200px;
-  height: 200px;
-  /* overflow: hidden; */
+  width: 100%;
+  height: auto;
+  align-items: center;
+  gap: 50px;
+  display: flex;
+  padding-bottom: 6px;
+  padding-right: 50px;
+  border-bottom: 1px solid black;
 }
 
 .SellerAllProduct-Product img {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 120px;
   object-fit: cover;
 }
 
-.SellerAllProduct-ProductInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  text-align: center;
+.SellerAllProduct-Product .Product-Name {
+  flex: 2;
 }
 
-.SellerAllProduct-ProductInfo p {
-  width: 150px;
+.SellerAllProduct-Product p {
+  flex: 1;
+}
+
+/* CSS */
+.button-2 {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border: none;
+  color: #333333;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 30px;
+}
+
+.button-3 {
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 30px;
+  background: #e62143;
+  color: white;
+}
+
+.SellerAllProduct-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.button-4 {
+  appearance: none;
+  background-color: #fafbfc;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 20px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.button-4:hover {
+  background-color: #f3f4f6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.button-4-2 {
+  appearance: none;
+  background-color: #e62143;
+  border: 1px solid rgba(225, 227, 228, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: white;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 20px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.button-4-2:hover {
+  background-color: #f44562;
+  text-decoration: none;
+  transition-duration: 0.1s;
 }

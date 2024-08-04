@@ -18,6 +18,7 @@ function SellerAllProducts() {
             `${import.meta.env.VITE_API_URL}/products/seller/${currentUser._id}`
           );
           setData(response.data.product);
+          console.log(response.data.product);
         } catch (error) {
           console.error("Error fetching data", error.message);
         }
@@ -47,9 +48,16 @@ function SellerAllProducts() {
                 }`}
                 alt="Product"
               />
-              <div className="SellerAllProduct-ProductInfo">
-                <p>{product.name}</p>
-                <p>{product.price}</p>
+              <p className="Product-Name">{product.name}</p>
+              <p>
+                <span>&#8377;</span>
+                {product.price}
+              </p>
+              <p>{product.category[0]}</p>
+              <p>{product.size}</p>
+              <div className="SellerAllProduct-buttons">
+                <button className="button-4">Edit</button>
+                <button className="button-4-2">Delete</button>
               </div>
             </div>
           ))
