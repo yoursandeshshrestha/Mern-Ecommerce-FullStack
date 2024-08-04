@@ -8,6 +8,8 @@ import { userContext } from "../../../Context/userContext";
 
 function SellerAllProducts() {
   const [data, setData] = useState([]);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [productToDelete, setProductToDelete] = useState(null);
   const { currentUser } = useContext(userContext);
 
   useEffect(() => {
@@ -18,7 +20,6 @@ function SellerAllProducts() {
             `${import.meta.env.VITE_API_URL}/products/seller/${currentUser._id}`
           );
           setData(response.data.product);
-          console.log(response.data.product);
         } catch (error) {
           console.error("Error fetching data", error.message);
         }
@@ -27,8 +28,31 @@ function SellerAllProducts() {
     }
   }, [currentUser]);
 
+  const confirmDelete = (productId) => {
+    setProductToDelete(productId);
+    setShowConfirmation(true);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/products/${productToDelete}`
+      );
+      setData((prevData) =>
+        prevData.filter((product) => product._id !== productToDelete)
+      );
+      setShowConfirmation(false); // Close confirmation modal
+    } catch (error) {
+      console.error("Error deleting product", error.message);
+    }
+  };
+
   return (
-    <div className="SellerAllProduct-Container">
+    <div
+      className={`SellerAllProduct-Container ${
+        showConfirmation ? "disabled-buttons" : ""
+      }`}
+    >
       {/* Navbar */}
       <div className="SellerAllProduct-Nav">
         <div className="SellerAllProduct-heading">
@@ -57,14 +81,42 @@ function SellerAllProducts() {
               <p>{product.size}</p>
               <div className="SellerAllProduct-buttons">
                 <button className="button-4">Edit</button>
-                <button className="button-4-2">Delete</button>
+                <button
+                  className="button-4-2"
+                  onClick={() => confirmDelete(product._id)}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))
         ) : (
-          <div>You have no products</div>
+          <div className="No-Product">
+            <p>You have no products</p>
+          </div>
         )}
       </div>
+
+      {/* Confirmation Modal */}
+      {showConfirmation && (
+        <>
+          <div className="confirmation-modal-overlay" />
+          <div className="confirmation-modal">
+            <h3>Are you sure you want to delete this product?</h3>
+            <div className="modal-buttons">
+              <button className="button-4-2" onClick={handleDelete}>
+                Delete
+              </button>
+              <button
+                className="button-4"
+                onClick={() => setShowConfirmation(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
