@@ -83,3 +83,44 @@
   color: white;
   background-color: red;
 }
+
+.user-icon-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  padding: 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  right: 0px;
+}
+
+.dropdown-menu p:nth-child(1) {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.profile-Button-Navbar,
+.logout-Button-Navbar {
+  display: flex;
+  gap: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: black;
+}
+
+.profile-Button-Navbar img,
+.logout-Button-Navbar img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.profile-Button-Navbar:hover,
+.logout-Button-Navbar:hover {
+  background: rgb(223, 223, 223);
+}

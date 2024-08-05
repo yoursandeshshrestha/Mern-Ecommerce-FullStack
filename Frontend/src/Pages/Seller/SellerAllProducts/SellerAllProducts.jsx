@@ -41,7 +41,7 @@ function SellerAllProducts() {
       setData((prevData) =>
         prevData.filter((product) => product._id !== productToDelete)
       );
-      setShowConfirmation(false); // Close confirmation modal
+      setShowConfirmation(false);
     } catch (error) {
       console.error("Error deleting product", error.message);
     }

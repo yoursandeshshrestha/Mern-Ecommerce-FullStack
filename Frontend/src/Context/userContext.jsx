@@ -28,8 +28,14 @@ const UserProvider = ({ children }) => {
     }
   }, []);
 
+  const logout = () => {
+    Cookies.remove("token");
+    setCurrentUser(null);
+    window.location.href = "/";
+  };
+
   return (
-    <userContext.Provider value={{ currentUser, setCurrentUser }}>
+    <userContext.Provider value={{ currentUser, setCurrentUser, logout }}>
       {children}
     </userContext.Provider>
   );
