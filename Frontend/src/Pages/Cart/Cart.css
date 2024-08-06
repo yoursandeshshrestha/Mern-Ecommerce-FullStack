@@ -1,0 +1,137 @@
+.Cart-Container {
+  width: 100%;
+  height: 100vh;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 70px;
+  /* background: pink; */
+  display: flex;
+}
+
+.Shopping-Cart {
+  width: 60%;
+  border-top: 1px solid #d3d3d3;
+  padding-top: 40px;
+}
+
+.Cart-Total {
+  width: 40%;
+  border-top: 1px solid #d3d3d3;
+  padding-top: 40px;
+}
+
+.Shopping-Cart h2,
+.Cart-Total h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.Shopping-Cart {
+  border-right: 1px solid #d3d3d3;
+  display: flex;
+  padding-right: 30px;
+  overflow-y: scroll;
+  flex-direction: column;
+  /* gap: 15px; */
+}
+
+.Cart-Product-Details {
+  margin-top: 15px;
+  display: flex;
+  gap: 100px;
+  justify-content: flex-end;
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  padding: 20px 0;
+}
+
+.Cart-Product-List {
+  width: 98%;
+  display: flex;
+  height: 150px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.Cart-Product-List-Wrapper {
+  overflow-y: scroll;
+}
+
+.Cart-Product-List button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.Cart-Product-List img {
+  /* width: 100px; */
+  height: 100%;
+}
+
+.Cross-button img {
+  width: 15px;
+}
+
+.Quantity-Container {
+  display: flex;
+  gap: 10px;
+}
+
+.Quantity-Container p {
+  padding: 8px 13px;
+  border: 1px solid #7a7a7a99;
+}
+
+.Quantity-Container button {
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.price-for-gray {
+  color: gray;
+}
+
+.Cart-Total {
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.Cart-Total-Detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  padding: 20px 0;
+}
+
+.Cart-Total-Shipping-Other {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.Cart-Total-Shipping div:nth-child(2) {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.Cart-Total-Total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.Check-Out-Button {
+  border: none;
+  outline: none;
+  background-color: #0e0e0f;
+  color: white;
+  margin-top: 30px;
+  padding: 12px 0;
+  font-size: 15px;
+}
