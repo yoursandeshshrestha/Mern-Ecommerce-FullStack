@@ -4,18 +4,17 @@
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 70px;
-  /* background: pink; */
   display: flex;
 }
 
 .Shopping-Cart {
-  width: 60%;
+  width: 65%;
   border-top: 1px solid #d3d3d3;
   padding-top: 40px;
 }
 
 .Cart-Total {
-  width: 40%;
+  width: 35%;
   border-top: 1px solid #d3d3d3;
   padding-top: 40px;
 }
@@ -37,16 +36,13 @@
 
 .Cart-Product-Details {
   margin-top: 15px;
-  display: flex;
-  gap: 100px;
-  justify-content: flex-end;
   border-top: 1px solid #d3d3d3;
   border-bottom: 1px solid #d3d3d3;
   padding: 20px 0;
 }
 
 .Cart-Product-List {
-  width: 98%;
+  width: 95%;
   display: flex;
   height: 150px;
   align-items: center;
@@ -64,13 +60,20 @@
   background: transparent;
 }
 
-.Cart-Product-List img {
-  /* width: 100px; */
+.Wrapper-For-Image {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.Cart-Product-List .Wrapper-For-Image img {
+  width: 100px;
   height: 100%;
 }
 
-.Cross-button img {
+.Wrapper-For-Image .Cross-button img {
   width: 15px;
+  cursor: pointer;
 }
 
 .Quantity-Container {
@@ -79,7 +82,7 @@
 }
 
 .Quantity-Container p {
-  padding: 8px 13px;
+  padding: 5px 16px;
   border: 1px solid #7a7a7a99;
 }
 
@@ -134,4 +137,81 @@
   margin-top: 30px;
   padding: 12px 0;
   font-size: 15px;
+}
+
+.Cart-Product-List .Product-Name {
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* flex: 1; */
+}
+
+/* .Cart-Product-List .Wrapper-For-Image,
+.Cart-Product-List .Product-Quantity,
+.Cart-Product-List .Product-Price,
+.Cart-Product-List .Product-Total {
+  flex: 1;
+  background: pink;
+} */
+
+/* .Cart-Product-Details p {
+  flex: 1;
+} */
+
+.No-Product-Container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.No-Product-Container img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.No-Product-Container p {
+  font-size: 25px;
+}
+
+.button-38 {
+  background-color: #ffffff;
+  border: 0;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  text-decoration: none #d1d5db solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-38:hover {
+  background-color: rgb(249, 250, 251);
+}
+
+.button-38:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button-38:focus-visible {
+  box-shadow: none;
 }

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const { currentUser, logout } = useContext(userContext);
+  const { currentUser, logout, cartItemCount } = useContext(userContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,7 +65,7 @@ function Navbar() {
                 <img src={cartImage} alt="cart" />
               </Link>
             </div>
-            <div className="Navbar-Cart-Count">0</div>
+            <div className="Navbar-Cart-Count">{cartItemCount}</div>
             <div className="user-icon-dropdown">
               <img
                 src={userImage}

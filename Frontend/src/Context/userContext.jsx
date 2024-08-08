@@ -6,6 +6,7 @@ export const userContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [cartItemCount, setCartItemCount] = useState(0);
 
   useEffect(() => {
     const token = Cookies.get("token");
@@ -17,7 +18,13 @@ const UserProvider = ({ children }) => {
           withCredentials: true,
         })
         .then((response) => {
-          setCurrentUser(response.data.user);
+          const user = response.data.user;
+          setCurrentUser(user);
+
+          if (user && user.cartDetails) {
+            setCartItemCount(user.cartDetails.length);
+            // console.log(user);
+          }
         })
         .catch((error) => {
           console.error("Error fetching current user:", error);
@@ -26,16 +33,19 @@ const UserProvider = ({ children }) => {
           }
         });
     }
-  }, []);
+  }, [currentUser]);
 
   const logout = () => {
     Cookies.remove("token");
     setCurrentUser(null);
+    setCartItemCount(0);
     window.location.href = "/";
   };
 
   return (
-    <userContext.Provider value={{ currentUser, setCurrentUser, logout }}>
+    <userContext.Provider
+      value={{ currentUser, setCurrentUser, cartItemCount, logout }}
+    >
       {children}
     </userContext.Provider>
   );
