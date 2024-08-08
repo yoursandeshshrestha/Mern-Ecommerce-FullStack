@@ -58,12 +58,13 @@ form {
   font-weight: 400;
   height: 36px;
   transition: all 150ms ease-in-out 0s;
-  :hover {
-    color: rgb(61, 79, 88);
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(93, 108, 116);
-    box-shadow: rgb(0 0 0 / 30%) 0px 4px 4px, rgb(231 238 236) 0px 0px 0px 3px;
-  }
+}
+
+.CustomerAccount-Info button:hover {
+  color: rgb(61, 79, 88);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(93, 108, 116);
+  box-shadow: rgb(0 0 0 / 30%) 0px 4px 4px, rgb(231 238 236) 0px 0px 0px 3px;
 }
 
 .input-group input {
@@ -86,8 +87,32 @@ form {
   color: #161616;
   transition: background-color 70ms cubic-bezier(0.2, 0, 0.38, 0.9),
     outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
-  :focus {
-    outline: 2px solid #0f62fe;
-    outline-offset: -2px;
-  }
+}
+
+.input-group input:focus {
+  outline: 2px solid #0f62fe;
+  outline-offset: -2px;
+}
+
+.CustomerAccount-Buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Editable State Styles */
+.CustomerAccount-Container.editable .input-group input {
+  background-color: #ffffff;
+  border: 1px solid #acacac;
+  color: #000000;
+}
+
+.CustomerAccount-Buttons .update {
+  background-color: #0f62fe;
+  color: #ffffff;
+  border: none;
+}
+
+.CustomerAccount-Buttons .update:hover {
+  background-color: #0053e6;
+  color: white;
 }
