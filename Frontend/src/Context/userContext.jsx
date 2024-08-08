@@ -33,7 +33,7 @@ const UserProvider = ({ children }) => {
           }
         });
     }
-  }, [currentUser]);
+  }, [currentUser, setCurrentUser]);
 
   const logout = () => {
     Cookies.remove("token");

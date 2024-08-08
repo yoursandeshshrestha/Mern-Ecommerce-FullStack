@@ -1,39 +1,91 @@
 import React, { useContext, useState } from "react";
 import "./CustomerAccount.css";
 import { userContext } from "../../../Context/userContext";
+import axios from "axios";
+import cookie from "js-cookie";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CustomerAccount() {
   const { currentUser } = useContext(userContext);
+  const token = cookie.get("token");
   const [isEditable, setIsEditable] = useState(false);
+  const [username, setUsername] = useState(currentUser?.username);
+  const [email, setEmail] = useState(currentUser?.email);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleChangeClick = () => {
     setIsEditable((prev) => !prev);
+  };
+
+  const handleUpdate = async (e) => {
+    // e.preventDefault();
+
+    try {
+      const response = await axios.put(
+        `${import.meta.env.VITE_API_URL}/users/profile`,
+        {
+          username,
+          email,
+          currentPassword,
+          newPassword,
+          confirmPassword,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
+
+      if (response.status === 200) {
+        toast.success("Profile updated successfully!");
+        setIsEditable(false);
+      }
+
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.error(error);
+    }
   };
 
   return (
     <div
       className={`CustomerAccount-Container ${isEditable ? "editable" : ""}`}
     >
+      <ToastContainer />
       <div className="CustomerAccount-Info">
         <div className="CustomerAccount-Wrapper">
           <h2>Account Details</h2>
-          <form action="">
+          <form>
             <div className="input-group">
-              <label htmlFor="">Username</label>
+              <label>Username</label>
               <input
                 type="text"
                 placeholder="your name"
-                value={currentUser.username}
+                value={username}
                 disabled={!isEditable}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
               />
             </div>
             <div className="input-group">
-              <label htmlFor="">Email Address</label>
+              <label>Email Address</label>
               <input
                 type="email"
                 placeholder="your email"
-                value={currentUser.email}
+                value={email}
                 disabled={!isEditable}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
           </form>
@@ -42,34 +94,48 @@ function CustomerAccount() {
           <button onClick={handleChangeClick}>
             {isEditable ? "Cancel" : "Change"}
           </button>
-          {isEditable && <button className="update">Update</button>}
+          {isEditable && (
+            <button className="update" onClick={handleUpdate}>
+              Update
+            </button>
+          )}
         </div>
       </div>
       <div className="CustomerAccount-Password">
         <h2 className="second-h2">Password Change</h2>
-        <form action="">
+        <form>
           <div className="input-group">
-            <label htmlFor="">Current Password</label>
+            <label>Current Password</label>
             <input
               type="password"
               placeholder="Required to save changes"
               disabled={!isEditable}
+              value={currentPassword}
+              onChange={(e) => {
+                setCurrentPassword(e.target.value);
+              }}
             />
           </div>
           <div className="input-group">
-            <label htmlFor="">New Password</label>
+            <label>New Password</label>
             <input
               type="password"
               placeholder="leave blank to leave unchanged"
               disabled={!isEditable}
+              onChange={(e) => {
+                setNewPassword(e.target.value);
+              }}
             />
           </div>
           <div className="input-group">
-            <label htmlFor="">Confirm Password</label>
+            <label>Confirm Password</label>
             <input
               type="password"
               placeholder="leave blank to leave unchanged"
               disabled={!isEditable}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+              }}
             />
           </div>
         </form>
