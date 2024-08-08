@@ -40,3 +40,6 @@ body {
 .SellerLayout-Container {
   display: flex;
 }
+.CustomerLayout-Container {
+  display: flex;
+}

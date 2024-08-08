@@ -1,0 +1,32 @@
+.CustomerSidebar-Container {
+  width: 250px;
+  height: 100vh;
+  border-right: 1px solid #d3d3d3;
+  padding: 20px 10px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  color: #626262;
+}
+
+.CustomerSidebar-Container img {
+  width: 20px;
+}
+
+.CustomerSidebar-Common {
+  display: flex;
+  gap: 20px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.CustomerSidebar-Common:hover {
+  background-color: #dedde2;
+}
+
+p {
+  white-space: nowrap;
+}

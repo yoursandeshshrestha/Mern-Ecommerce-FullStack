@@ -7,12 +7,13 @@ import Category from "./Pages/Category/Category";
 import Cart from "./Pages/Cart/Cart";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import ScrollToTop from "./Components/ScrollToTop";
-import SellerMain from "./Pages/Seller/SellerMain/SellerMain";
 import MainLayout from "./Layout/MainLayout";
 import SellerLayout from "./Layout/SellerLayout";
 import CreateProduct from "./Pages/Seller/SellerCreateProduct/CreateProduct";
 import SellerAllProducts from "./Pages/Seller/SellerAllProducts/SellerAllProducts";
 import SellerProfile from "./Pages/Seller/sellerProfile/SellerProfile";
+import CustomerLayout from "./Layout/CustomerLayout";
+import CustomerProfile from "./Pages/Customer/CustomerAccount/CustomerAccount";
 
 function App() {
   return (
@@ -30,9 +31,12 @@ function App() {
           <Route path="products/:id" element={<ProductDetail />} />
         </Route>
         <Route path="dashboard" element={<SellerLayout />}>
-          <Route path="product" element={<CreateProduct />} />
-          <Route path="allproduct" element={<SellerAllProducts />} />
+          <Route path="create-product" element={<CreateProduct />} />
+          <Route path="all-products" element={<SellerAllProducts />} />
           <Route path="profile" element={<SellerProfile />} />
+        </Route>
+        <Route path="my-account" element={<CustomerLayout />}>
+          <Route path="edit-account" element={<CustomerProfile />} />
         </Route>
       </Routes>
     </>

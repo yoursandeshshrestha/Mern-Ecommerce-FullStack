@@ -1,0 +1,15 @@
+.CustomerDashboard-Container {
+  padding: 30px;
+}
+
+.CustomerDashboard-Top h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.CustomerDashboard-Top p {
+  width: 800px;
+  color: gray;
+  white-space: wrap;
+  margin-top: 20px;
+}

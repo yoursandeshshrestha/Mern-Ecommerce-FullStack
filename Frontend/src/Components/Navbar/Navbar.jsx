@@ -75,10 +75,7 @@ function Navbar() {
               />
               {dropdownVisible && (
                 <div className="dropdown-menu">
-                  <Link
-                    to={"/customer/dashboard"}
-                    className="profile-Button-Navbar"
-                  >
+                  <Link to={"/my-account"} className="profile-Button-Navbar">
                     <img src={userImage} alt="icon" />
                     <p>Profile</p>
                   </Link>

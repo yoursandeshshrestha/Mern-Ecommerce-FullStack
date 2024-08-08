@@ -30,13 +30,13 @@ function SellerSidebar() {
             <p>Dashboard</p>
           </div>
         </Link>
-        <Link to={"/dashboard/product"}>
+        <Link to={"/dashboard/create-product"}>
           <div className="SellerSidebar-CreateProduct">
             <img src={createProductIcon} alt="icon" />
             <p> Create Product</p>
           </div>
         </Link>
-        <Link to={"/dashboard/allproduct"}>
+        <Link to={"/dashboard/all-products"}>
           <div className="SellerSidebar-Product">
             <img src={productIcon} alt="icon" />
             <p>All Product</p>
