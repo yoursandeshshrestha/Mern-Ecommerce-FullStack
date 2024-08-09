@@ -4,7 +4,7 @@ import { userContext } from "../../../Context/userContext";
 
 function CustomerDashboard() {
   const { currentUser } = useContext(userContext);
-  console.log(currentUser);
+  // console.log(currentUser);
 
   return (
     <div className="CustomerDashboard-Container">

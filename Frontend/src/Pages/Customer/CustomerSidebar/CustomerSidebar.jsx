@@ -35,10 +35,10 @@ function CustomerSidebar() {
           <p>Orders</p>
         </div>
       </Link>
-      <Link to={"/my-account/addresses"}>
+      <Link to={"/my-account/address"}>
         <div className="CustomerSidebar-Common">
           <img src={addressIcon} alt="icon" />
-          <p>Addresses</p>
+          <p>Address</p>
         </div>
       </Link>
       <Link to={"/my-account/edit-account"}>

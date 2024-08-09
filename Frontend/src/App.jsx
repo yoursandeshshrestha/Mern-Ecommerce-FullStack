@@ -14,6 +14,7 @@ import SellerAllProducts from "./Pages/Seller/SellerAllProducts/SellerAllProduct
 import SellerProfile from "./Pages/Seller/sellerProfile/SellerProfile";
 import CustomerLayout from "./Layout/CustomerLayout";
 import CustomerProfile from "./Pages/Customer/CustomerAccount/CustomerAccount";
+import CustomerAddress from "./Pages/Customer/CustomerAddress/CustomerAddress";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         </Route>
         <Route path="my-account" element={<CustomerLayout />}>
           <Route path="edit-account" element={<CustomerProfile />} />
+          <Route path="address" element={<CustomerAddress />} />
         </Route>
       </Routes>
     </>

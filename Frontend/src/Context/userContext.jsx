@@ -20,10 +20,8 @@ const UserProvider = ({ children }) => {
         .then((response) => {
           const user = response.data.user;
           setCurrentUser(user);
-
-          if (user && user.cartDetails) {
+          if (user.cartDetails) {
             setCartItemCount(user.cartDetails.length);
-            // console.log(user);
           }
         })
         .catch((error) => {
@@ -33,7 +31,7 @@ const UserProvider = ({ children }) => {
           }
         });
     }
-  }, [currentUser, setCurrentUser]);
+  }, [currentUser]);
 
   const logout = () => {
     Cookies.remove("token");

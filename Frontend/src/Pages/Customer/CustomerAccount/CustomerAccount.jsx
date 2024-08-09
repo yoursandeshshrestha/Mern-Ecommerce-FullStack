@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function CustomerAccount() {
   const { currentUser } = useContext(userContext);
+  // console.log(currentUser);
   const token = cookie.get("token");
   const [isEditable, setIsEditable] = useState(false);
   const [username, setUsername] = useState(currentUser?.username);
@@ -63,7 +64,7 @@ function CustomerAccount() {
       <div className="CustomerAccount-Info">
         <div className="CustomerAccount-Wrapper">
           <h2>Account Details</h2>
-          <form>
+          <form className="CustomerAccount-Form">
             <div className="input-group">
               <label>Username</label>
               <input
@@ -103,7 +104,7 @@ function CustomerAccount() {
       </div>
       <div className="CustomerAccount-Password">
         <h2 className="second-h2">Password Change</h2>
-        <form>
+        <form className="CustomerAccount-Form">
           <div className="input-group">
             <label>Current Password</label>
             <input
