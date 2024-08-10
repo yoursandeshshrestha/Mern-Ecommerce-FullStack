@@ -1,0 +1,86 @@
+.CustomerOrder-Container {
+  padding: 30px;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.CustomerOrder-Container h3 {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.OrdersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.OrdersTable th,
+.OrdersTable td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.OrdersTable th {
+  font-weight: bold;
+}
+
+.OrdersTable td {
+  vertical-align: middle;
+}
+
+.OrderID {
+  color: #888;
+  font-size: 12px;
+}
+
+.PaymentStatus.Completed {
+  color: #34d399; /* Green */
+  background-color: #ecfdf5; /* Light Green */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.PaymentStatus.UnCompleted {
+  color: #f87171; /* Red */
+  background-color: #fee2e2; /* Light Red */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.OrderStatus.Processing {
+  color: #f97316; /* Orange */
+  background-color: #ffedd5; /* Light Orange */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.OrderStatus.Shipping {
+  color: #3b82f6; /* Blue */
+  background-color: #eff6ff; /* Light Blue */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.OrderStatus.Delivered {
+  color: #34d399; /* Green */
+  background-color: #ecfdf5; /* Light Green */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.OrderStatus.Cancelled {
+  color: #ef4444; /* Red */
+  background-color: #fee2e2; /* Light Red */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.ProductDetails {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}

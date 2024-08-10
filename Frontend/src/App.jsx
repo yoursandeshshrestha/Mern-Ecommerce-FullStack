@@ -18,6 +18,7 @@ import CustomerAddress from "./Pages/Customer/CustomerAddress/CustomerAddress";
 import CheckoutLayout from "./Layout/CheckoutLayout";
 import Checkout from "./Pages/Checkout/Checkout";
 import Thankyou from "./Pages/Thankyou/Thankyou";
+import CustomerOrder from "./Pages/Customer/CustomerOrder/CustomerOrder";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         </Route>
         <Route path="my-account" element={<CustomerLayout />}>
           <Route path="edit-account" element={<CustomerProfile />} />
+          <Route path="orders" element={<CustomerOrder />} />
           <Route path="address" element={<CustomerAddress />} />
         </Route>
         <Route path="cart" element={<CheckoutLayout />}>
