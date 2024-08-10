@@ -15,7 +15,6 @@ import SellerProfile from "./Pages/Seller/sellerProfile/SellerProfile";
 import CustomerLayout from "./Layout/CustomerLayout";
 import CustomerProfile from "./Pages/Customer/CustomerAccount/CustomerAccount";
 import CustomerAddress from "./Pages/Customer/CustomerAddress/CustomerAddress";
-import BillingDetails from "./Pages/BillingDetails/BillingDetails";
 import CheckoutLayout from "./Layout/CheckoutLayout";
 import Checkout from "./Pages/Checkout/Checkout";
 import Thankyou from "./Pages/Thankyou/Thankyou";
