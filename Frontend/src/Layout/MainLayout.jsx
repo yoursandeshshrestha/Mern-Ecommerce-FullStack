@@ -4,7 +4,6 @@ import Footer from "../Components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = ({ children }) => {
-  console.log("Rendering MainLayout");
   return (
     <>
       <Navbar />

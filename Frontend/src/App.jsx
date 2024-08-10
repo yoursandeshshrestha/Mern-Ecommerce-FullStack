@@ -15,6 +15,10 @@ import SellerProfile from "./Pages/Seller/sellerProfile/SellerProfile";
 import CustomerLayout from "./Layout/CustomerLayout";
 import CustomerProfile from "./Pages/Customer/CustomerAccount/CustomerAccount";
 import CustomerAddress from "./Pages/Customer/CustomerAddress/CustomerAddress";
+import BillingDetails from "./Pages/BillingDetails/BillingDetails";
+import CheckoutLayout from "./Layout/CheckoutLayout";
+import Checkout from "./Pages/Checkout/Checkout";
+import Thankyou from "./Pages/Thankyou/Thankyou";
 
 function App() {
   return (
@@ -39,6 +43,10 @@ function App() {
         <Route path="my-account" element={<CustomerLayout />}>
           <Route path="edit-account" element={<CustomerProfile />} />
           <Route path="address" element={<CustomerAddress />} />
+        </Route>
+        <Route path="cart" element={<CheckoutLayout />}>
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="thankyou" element={<Thankyou />} />
         </Route>
       </Routes>
     </>
