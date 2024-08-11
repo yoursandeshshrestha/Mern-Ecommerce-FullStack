@@ -9,6 +9,7 @@ import createProductIcon from "../../../assets/SellerAsset/createproduct.png";
 import profileIcon from "../../../assets/SellerAsset/profile.png";
 import logoutIcon from "../../../assets/SellerAsset/logout.png";
 import homeIcon from "../../../assets/SellerAsset/home.png";
+import orderIcon from "../../../assets/SellerAsset/orderIcon.png";
 
 function SellerSidebar() {
   const navigate = useNavigate();
@@ -40,6 +41,12 @@ function SellerSidebar() {
           <div className="SellerSidebar-Product">
             <img src={productIcon} alt="icon" />
             <p>All Product</p>
+          </div>
+        </Link>
+        <Link to={"/dashboard/manage-orders"}>
+          <div className="SellerSidebar-Product">
+            <img src={orderIcon} alt="icon" />
+            <p>Manage Orders</p>
           </div>
         </Link>
         <Link to={"/dashboard/profile"}>
