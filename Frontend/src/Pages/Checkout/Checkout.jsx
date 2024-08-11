@@ -47,6 +47,7 @@ function Checkout() {
         },
         orderedProducts: cartProducts.map((product) => ({
           productName: product.productName,
+          productID: product.productID,
           price: product.productPrice,
           image: product.productImage,
           size: product.size,

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./CustomerOrder.css";
 import axios from "axios";
 import cookie from "js-cookie";
+import { Link } from "react-router-dom";
 
 function CustomerOrder() {
   const token = cookie.get("token");
@@ -39,8 +40,8 @@ function CustomerOrder() {
             <th>Date</th>
             <th>Shopname</th>
             <th>Payment</th>
-            <th>Total Price</th>
             <th>Status</th>
+            <th>Total Price</th>
           </tr>
         </thead>
         <tbody>
@@ -54,11 +55,22 @@ function CustomerOrder() {
                 <tr key={`${order._id}-${index}`}>
                   <td>
                     <div className="ProductDetails">
-                      <strong>{product.productName}</strong>
+                      <Link
+                        to={`/products/${product.productID}`}
+                        className="ProductName"
+                      >
+                        <strong>{product.productName}</strong>
+                      </Link>
                       <span className="OrderID">Order ID: #{order._id}</span>
                     </div>
                   </td>
-                  <td>{new Date(order.createdAt).toLocaleDateString()}</td>
+                  <td>
+                    {new Date(order.createdAt).toLocaleDateString("en-US", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </td>
                   <td>{product.shopName}</td>
                   <td>
                     <span
@@ -68,13 +80,13 @@ function CustomerOrder() {
                     </span>
                   </td>
                   <td>
-                    <span>&#8377;</span>
-                    {product.price.toFixed(2)}
-                  </td>
-                  <td>
                     <span className={`OrderStatus ${product.orderStatus}`}>
                       {product.orderStatus}
                     </span>
+                  </td>
+                  <td>
+                    <span>&#8377;</span>
+                    {product.price.toFixed(2)}
                   </td>
                 </tr>
               ))

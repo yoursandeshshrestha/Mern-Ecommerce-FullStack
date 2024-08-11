@@ -18,6 +18,8 @@ function Cart() {
     }
   }, [currentUser]);
 
+  // console.log(cartProducts);
+
   const calculateSubtotal = () => {
     return (
       cartProducts.reduce((total, item) => {
