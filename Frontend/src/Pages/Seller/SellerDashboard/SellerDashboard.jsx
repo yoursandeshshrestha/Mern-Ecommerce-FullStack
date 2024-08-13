@@ -13,11 +13,10 @@ import {
   Legend,
 } from "chart.js";
 import { userContext } from "../../../Context/userContext";
-import axios from "axios"; // For making API requests
+import axios from "axios";
 import "./SellerDashboard.css";
 import cookie from "js-cookie";
 
-// Registering ChartJS components
 ChartJS.register(
   BarElement,
   LineElement,
@@ -65,23 +64,20 @@ const SellerDashboard = () => {
 
         const monthlySales = {};
         const monthlyRevenue = {};
-        const categoryCount = {};
+        const genderCount = {};
         const orderStatusCount = {};
 
-        // Process Orders
         orders.forEach((order) => {
           const month = new Date(order.paidAt).toLocaleString("default", {
             month: "long",
           });
 
-          // Sales count
           if (monthlySales[month]) {
             monthlySales[month] += order.productsQuantity;
           } else {
             monthlySales[month] = order.productsQuantity;
           }
 
-          // Revenue calculation
           if (monthlyRevenue[month]) {
             monthlyRevenue[month] += order.totalPrice;
           } else {
@@ -91,25 +87,24 @@ const SellerDashboard = () => {
 
         orders.forEach((order) => {
           order.orderedProducts.forEach((product) => {
-            // Process order status data
             const status = product.orderStatus;
             if (orderStatusCount[status]) {
               orderStatusCount[status]++;
             } else {
               orderStatusCount[status] = 1;
             }
-
-            // Process product category data
-            product.category.forEach((cat) => {
-              if (cat === "Men" || cat === "Women") {
-                if (categoryCount[cat]) {
-                  categoryCount[cat]++;
-                } else {
-                  categoryCount[cat] = 1;
-                }
-              }
-            });
           });
+        });
+
+        products.product.forEach((product) => {
+          const gender = product.gender;
+          if (gender === "Men" || gender === "Women" || gender === "Unisex") {
+            if (genderCount[gender]) {
+              genderCount[gender]++;
+            } else {
+              genderCount[gender] = 1;
+            }
+          }
         });
 
         setSalesData({
@@ -134,7 +129,6 @@ const SellerDashboard = () => {
           ],
         });
 
-        // Set the processed order status data for the chart
         setOrderStatusData({
           labels: Object.keys(orderStatusCount),
           datasets: [
@@ -146,17 +140,16 @@ const SellerDashboard = () => {
           ],
         });
 
-        // Set the processed product category data for the chart, filtering to only include "Men" and "Women"
         setProductCategoryData({
-          labels: Object.keys(categoryCount),
+          labels: Object.keys(genderCount),
           datasets: [
             {
-              label: "Product Categories",
-              data: Object.values(categoryCount),
+              label: "Gender Categories",
+              data: Object.values(genderCount),
               backgroundColor: [
-                "rgba(255,99,132,0.6)",
+                "rgb(200, 161, 224)",
                 "rgba(54,162,235,0.6)",
-                // Add more colors if needed
+                "#C65BCF",
               ],
             },
           ],
@@ -167,7 +160,7 @@ const SellerDashboard = () => {
     };
 
     fetchSellerOrders();
-  }, [currentUser, token]);
+  }, []);
 
   return (
     <div className="SellerDashboard-Container">
@@ -175,29 +168,24 @@ const SellerDashboard = () => {
         <h2>Welcome, {currentUser?.username}!</h2>
       </div>
 
-      {/* Add Charts */}
       <div className="SellerDashboard-Charts">
         <div className="SellerDashboard-SectionOne">
-          {/* Bar Chart for Sales */}
           <div className="chart-container">
             <h3>Monthly Sales</h3>
             {salesData && <Bar data={salesData} />}
           </div>
 
-          {/* Line Chart for Revenue */}
           <div className="chart-container">
             <h3>Monthly Revenue</h3>
             {revenueData && <Line data={revenueData} />}
           </div>
         </div>
 
-        {/* Pie Chart for Product Categories */}
         <div className="chart-container">
           <h3>Product Category Distribution</h3>
           {productCategoryData && <Pie data={productCategoryData} />}
         </div>
 
-        {/* Doughnut Chart for Order Status */}
         <div className="chart-container">
           <h3>Order Status Breakdown</h3>
           {orderStatusData && <Doughnut data={orderStatusData} />}
