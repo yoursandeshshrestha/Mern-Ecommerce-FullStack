@@ -20,6 +20,7 @@ import Checkout from "./Pages/Checkout/Checkout";
 import Thankyou from "./Pages/Thankyou/Thankyou";
 import CustomerOrder from "./Pages/Customer/CustomerOrder/CustomerOrder";
 import SellerOrders from "./Pages/Seller/SellerOrders/SellerOrders";
+import EditProduct from "./Pages/Seller/EditProduct/EditProduct";
 
 function App() {
   return (
@@ -41,6 +42,10 @@ function App() {
           <Route path="all-products" element={<SellerAllProducts />} />
           <Route path="profile" element={<SellerProfile />} />
           <Route path="manage-orders" element={<SellerOrders />} />
+          <Route
+            path="all-product/edit-product/:id"
+            element={<EditProduct />}
+          />
         </Route>
         <Route path="my-account" element={<CustomerLayout />}>
           <Route path="edit-account" element={<CustomerProfile />} />

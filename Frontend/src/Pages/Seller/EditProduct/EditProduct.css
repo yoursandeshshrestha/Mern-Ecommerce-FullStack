@@ -1,0 +1,19 @@
+.Image-Preview {
+  background: #f9f9f9;
+  margin-top: 10px;
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+  /* background: pink; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(181, 189, 196);
+}
+
+.Image-Preview img {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}

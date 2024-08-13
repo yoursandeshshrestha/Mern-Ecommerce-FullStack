@@ -5,6 +5,7 @@ import axios from "axios";
 import Product from "../../../assets/SellerAsset/product.png";
 // Context
 import { userContext } from "../../../Context/userContext";
+import { Link } from "react-router-dom";
 
 function SellerAllProducts() {
   const [data, setData] = useState([]);
@@ -80,7 +81,9 @@ function SellerAllProducts() {
               <p>{product.category[0]}</p>
               <p>{product.size}</p>
               <div className="SellerAllProduct-buttons">
-                <button className="button-4">Edit</button>
+                <Link to={`/dashboard/all-product/edit-product/${product._id}`}>
+                  <button className="button-4">Edit</button>
+                </Link>
                 <button
                   className="button-4-2"
                   onClick={() => confirmDelete(product._id)}
