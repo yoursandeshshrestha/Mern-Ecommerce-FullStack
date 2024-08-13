@@ -79,7 +79,7 @@ function SellerAllProducts() {
                 {product.price}
               </p>
               <p>{product.category[0]}</p>
-              <p>{product.size}</p>
+              <p>{product.gender}</p>
               <div className="SellerAllProduct-buttons">
                 <Link to={`/dashboard/all-product/edit-product/${product._id}`}>
                   <button className="button-4">Edit</button>

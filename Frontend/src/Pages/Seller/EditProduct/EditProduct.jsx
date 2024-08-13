@@ -7,7 +7,7 @@ import productIcon from "../../../assets/SellerAsset/createproduct.png";
 import tick from "../../../assets/SellerAsset/check-mark.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const defaultCategories = [
   { value: "jacket", label: "Jacket" },
@@ -18,6 +18,7 @@ const defaultCategories = [
 
 function EditProduct() {
   const { id } = useParams(); // Get product ID from URL
+  const navigate = useNavigate();
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [selectedGender, setSelectedGender] = useState(null);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -129,8 +130,10 @@ function EditProduct() {
         }
       );
 
-      if (response.data.success) {
+      if (response.status == 200) {
+        console.log("Product updated successfully!");
         toast.success("Product updated successfully!");
+        navigate("/dashboard/all-products");
       }
     } catch (error) {
       toast.error(error.response.data.message);
