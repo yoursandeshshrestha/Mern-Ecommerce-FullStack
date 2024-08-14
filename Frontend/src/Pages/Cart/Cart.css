@@ -78,7 +78,11 @@
 
 .Quantity-Container {
   display: flex;
+  align-items: center;
+  justify-content: center; /* Centering horizontally */
   gap: 10px;
+  text-align: center; /* Center text inside the container */
+  height: 180px;
 }
 
 .Quantity-Container p {
@@ -214,4 +218,92 @@
 
 .button-38:focus-visible {
   box-shadow: none;
+}
+
+.Cart-Container {
+  width: 100%;
+  height: 100vh;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 70px;
+  display: flex;
+}
+
+.Shopping-Cart {
+  width: 65%;
+  border-top: 1px solid #d3d3d3;
+  padding-top: 40px;
+}
+
+.Cart-Total {
+  width: 35%;
+  border-top: 1px solid #d3d3d3;
+  padding-top: 40px;
+}
+
+.Shopping-Cart h2,
+.Cart-Total h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.Cart-Product-Table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Cart-Product-Table th,
+.Cart-Product-Table td {
+  /* border: 1px solid #d3d3d3; */
+  padding: 10px;
+  text-align: center;
+}
+
+.Cart-Product-Table th {
+  /* background-color: #f8f8f8; */
+  font-weight: 400;
+}
+
+.Cart-Product-Table .Product-Image {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+}
+
+.Quantity-Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.Quantity-Container p {
+  padding: 5px 16px;
+  border: 1px solid #7a7a7a99;
+}
+
+.Quantity-Container button {
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.Cross-button {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.Cross-button img {
+  width: 15px;
+  cursor: pointer;
+}
+
+.Cart-Product-Table {
+  margin-top: 30px;
+}
+
+.Quantity-Button {
+  background: transparent;
+  border: 1px solid gray;
+  padding: 3px 6px;
 }

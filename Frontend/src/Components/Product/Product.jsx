@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ProductItem from "../ProductItem/ProductItem";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 import "./Product.css";
 
 function Product() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +18,8 @@ function Product() {
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -28,7 +33,18 @@ function Product() {
         <button>New Products</button>
       </div>
       <div className="Product">
-        {data.length > 0 ? (
+        {loading ? (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100vh",
+            }}
+          >
+            <CircularProgress />
+          </Box>
+        ) : data.length > 0 ? (
           data.map((item) => (
             <ProductItem
               key={item._id}
@@ -41,7 +57,7 @@ function Product() {
             />
           ))
         ) : (
-          <p>No products available.</p> // Handle empty data scenario
+          <p>No products available.</p>
         )}
       </div>
     </div>

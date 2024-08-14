@@ -18,8 +18,6 @@ function Cart() {
     }
   }, [currentUser]);
 
-  // console.log(cartProducts);
-
   const calculateSubtotal = () => {
     return (
       cartProducts.reduce((total, item) => {
@@ -70,14 +68,22 @@ function Cart() {
     <div className="Cart-Container">
       <div className="Shopping-Cart">
         <h2>Shopping Cart</h2>
-        <div className="Cart-Product-Details">
-          <p>Product Information</p>
-        </div>
-        <div className="Cart-Product-List-Wrapper">
-          {cartProducts.length > 0 ? (
-            cartProducts.map((item) => (
-              <div className="Cart-Product-List" key={item._id}>
-                <div className="Wrapper-For-Image">
+        <table className="Cart-Product-Table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product Image</th>
+              <th>Product Name</th>
+              <th>Size</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody className="tbody-container">
+            {cartProducts.map((item) => (
+              <tr key={item._id}>
+                <td>
                   <button className="Cross-button">
                     <img
                       src={crossImage}
@@ -85,41 +91,45 @@ function Cart() {
                       onClick={() => handleRemoveItem(item.productID)}
                     />
                   </button>
+                </td>
+                <td>
                   <img
                     src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${
                       item.productImage
                     }`}
                     alt={item.productName}
+                    className="Product-Image"
                   />
-                </div>
-                <p className="Product-Name">{item.productName}</p>
-                <p className="price-for-gray Product-Price">
+                </td>
+                <td>{item.productName}</td>
+                <td>{item.productSize}</td>
+                <td className="Product-Price">
                   <span>&#8377;</span>
                   {item.productPrice}
-                </p>
-                <div className="Quantity-Container Product-Quantity">
+                </td>
+                <td className="Quantity-Container">
                   <button
+                    className="Quantity-Button"
                     onClick={() => updateProductQuantity(item.productID, -1)}
                   >
                     -
                   </button>
                   <p>{item.productQuantity}</p>
                   <button
+                    className="Quantity-Button"
                     onClick={() => updateProductQuantity(item.productID, 1)}
                   >
                     +
                   </button>
-                </div>
-                <p className="Product-Total">
+                </td>
+                <td className="Product-Total">
                   <span>&#8377;</span>
                   {item.productPrice * item.productQuantity}
-                </p>
-              </div>
-            ))
-          ) : (
-            <p className="No-Products">No products yet</p>
-          )}
-        </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
       <div className="Cart-Total">
         <h2>Cart Totals</h2>
