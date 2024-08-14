@@ -7,7 +7,9 @@ function ProductItem(props) {
 
   return (
     <div className="ProductItem-Container">
-      <img src={imageLink} alt="productImage" />
+      <div className="Image-Container">
+        <img src={imageLink} alt="productImage" />
+      </div>
       <Link to={`products/${props.id}`}>
         <div className="ProductItem-Info">
           <p className="ProductName">{props.name}</p>

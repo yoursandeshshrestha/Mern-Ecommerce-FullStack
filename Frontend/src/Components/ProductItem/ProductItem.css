@@ -1,6 +1,7 @@
 /* ProductItem.css */
 
 .ProductItem-Container {
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -8,10 +9,17 @@
   background-color: #fff;
 }
 
-.ProductItem-Container img {
-  width: 280px;
+.Image-Container {
+  width: auto;
   height: auto;
-  object-fit: cover;
+  background: pink;
+}
+
+.ProductItem-Container img {
+  width: 100%;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+  /* background: #f1f2f4; */
 }
 
 .ProductName {
