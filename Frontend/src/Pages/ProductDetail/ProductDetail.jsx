@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 function ProductDetail() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null); // State to handle the selected size
   const { id } = useParams();
   const { currentUser } = useContext(userContext);
 
@@ -32,6 +33,11 @@ function ProductDetail() {
   }, [id]);
 
   const addToCart = async () => {
+    if (!selectedSize) {
+      toast.error("Please select a size before adding to the cart.");
+      return;
+    }
+
     if (!currentUser || currentUser.accountType !== "Customer") {
       toast.error(
         "You need to be logged in as a customer to add items to your cart."
@@ -49,6 +55,7 @@ function ProductDetail() {
           productName: data.name,
           productPrice: data.price,
           productImage: data.image,
+          productSize: selectedSize, // Include the selected size in the request
         }
       );
       toast.success("Item added to cart!");
@@ -92,7 +99,7 @@ function ProductDetail() {
                     <img src={Star} alt="Star" />
                   </li>
                 ))}
-                <li key="star-dull">
+                <li>
                   <img src={StarDull} alt="Star Dull" />
                 </li>
               </ul>
@@ -116,11 +123,21 @@ function ProductDetail() {
               Availability |{" "}
               <span>{data.stock > 0 ? "In Stock" : "Out of Stock"}</span>
             </p>
-            <p className="ProductDetail-Size">
-              Size | <span>{data.size}</span>
-            </p>
+            <div className="ProductDetail-Size">
+              {data.size.map((element, index) => (
+                <p
+                  key={index}
+                  className={`ProductDetail-Size-Element ${
+                    selectedSize === element ? "selected" : ""
+                  }`}
+                  onClick={() => setSelectedSize(element)}
+                >
+                  {element}
+                </p>
+              ))}
+            </div>
           </div>
-          <p>{data.description}</p>
+          <p className="ProductDetail-Description">{data.description}</p>
           <div className="ProductDetail-Buttons">
             <button onClick={addToCart}>Add To Cart</button>
             <button>
