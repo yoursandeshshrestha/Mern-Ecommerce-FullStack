@@ -6,6 +6,7 @@ import Banner from "../../Components/Banner/Banner";
 // Banner Image
 import topImage from "../../assets/Ecommerce-design-idea/banner.png";
 import topImage2 from "../../assets/Ecommerce-design-idea/banner2.png";
+import ProductBox from "../../Components/Product/ProductBox";
 
 const bannerInfo = (
   <div className="Banner-Info">
@@ -29,6 +30,7 @@ function Home() {
       </div>
       <Product />
       <Banner image1={topImage} image2={topImage2} bannerInfo={bannerInfo} />
+      <ProductBox />
     </>
   );
 }

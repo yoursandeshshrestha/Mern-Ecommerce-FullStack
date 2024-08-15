@@ -11,15 +11,30 @@ function Product() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [totalProduct, setTotalProduct] = useState(null);
+  const [isDiscounted, setIsDiscounted] = useState(false);
+  const [activeButton, setActiveButton] = useState("all");
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/products?page=${page}`
-        );
-        setData((prevData) => [...prevData, ...response.data]);
-        setHasMore(response.data.length > 0);
+        const queryParams = `?page=${page}&limit=10${
+          isDiscounted ? "&discounted=true" : ""
+        }`;
+        const [productsResponse, totalResponse] = await Promise.all([
+          axios.get(`${import.meta.env.VITE_API_URL}/products${queryParams}`),
+          axios.get(`${import.meta.env.VITE_API_URL}/products`),
+        ]);
+
+        if (page === 1) {
+          setData(productsResponse.data);
+        } else {
+          setData((prevData) => [...prevData, ...productsResponse.data]);
+        }
+
+        setTotalProduct(totalResponse.data.length);
+        setHasMore(productsResponse.data.length > 0);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -28,21 +43,53 @@ function Product() {
     };
 
     fetchData();
-  }, [page]);
+
+    return () => {
+      setLoading(false);
+    };
+  }, [page, isDiscounted]);
 
   const loadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
+  const fetchDiscountedProducts = () => {
+    setPage(1);
+    setData([]);
+    setIsDiscounted(true);
+    setActiveButton("discounted");
+  };
+
+  const fetchAllProducts = () => {
+    setPage(1);
+    setData([]);
+    setIsDiscounted(false);
+    setActiveButton("all");
+  };
+
   return (
     <div className="Product-Container">
       <div className="Product-Filter-Options">
-        <button>All Products</button>
-        <button>New Products</button>
-        <p>{data.length} out of </p>
+        <div className="Product-Options">
+          <Button
+            onClick={fetchAllProducts}
+            className={activeButton === "all" ? "active" : ""}
+          >
+            All Products
+          </Button>
+          <Button
+            onClick={fetchDiscountedProducts}
+            className={activeButton === "discounted" ? "active" : ""}
+          >
+            Discounted Products
+          </Button>
+        </div>
+        <p>
+          {data.length} out of {totalProduct} Products
+        </p>
       </div>
       <div className="Product">
-        {loading && page === 1 ? (
+        {loading && data.length === 0 ? (
           <Box
             sx={{
               display: "flex",
@@ -72,14 +119,14 @@ function Product() {
           <p className="NO-PRODUCT-FOUND">No products available.</p>
         )}
       </div>
-      {hasMore && (
+      {hasMore && !loading && (
         <div className="Button_Container">
           <Button
             onClick={loadMore}
             disabled={loading}
             className="Load-More-Button"
           >
-            {loading ? "Loading..." : "Load More"}
+            Load More
           </Button>
         </div>
       )}

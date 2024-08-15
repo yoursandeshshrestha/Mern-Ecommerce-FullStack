@@ -16,29 +16,30 @@
 
 .Product-Filter-Options {
   display: flex;
-  gap: 45px;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.Product-Filter-Options button:nth-child(1) {
-  border-bottom: 2px solid #23232c;
-  color: #23232c;
-}
-
-.Product-Filter-Options button {
-  cursor: pointer;
-  outline: none;
-  border: none;
-  padding: 10px 0;
-  background-color: transparent;
-  font-size: 16px;
+  margin-bottom: 20px;
   color: #7c7c80;
 }
 
+.Product-Options {
+  display: flex;
+  gap: 20px;
+}
+
+.Product-Options button {
+  color: gray;
+}
+
+.Product-Options .active {
+  border-bottom: 2px solid #000000;
+  color: #000000;
+}
+
 .Product-Filter-Options button:hover {
-  border-bottom: 2px solid tomato;
-  color: tomato;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 .NO-PRODUCT-FOUND {

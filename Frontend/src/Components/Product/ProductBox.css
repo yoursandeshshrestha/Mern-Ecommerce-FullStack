@@ -1,0 +1,33 @@
+.Product-Container-Box {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 0px 60px 0px;
+}
+
+.Product-Box {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+.ViewMoreButton {
+  display: block;
+  margin: 20px auto;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ViewMoreButton img {
+  width: 20px;
+}
+
+.ViewMoreButton:hover {
+  background-color: #0056b3;
+}
