@@ -6,19 +6,22 @@
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  background-color: #fff;
+  /* background: pink; */
 }
 
 .Image-Container {
-  width: auto;
-  height: auto;
+  width: 250px;
+  height: 250px;
   background: pink;
+  background-color: #f1f2f4;
+  position: relative;
 }
 
 .ProductItem-Container img {
   width: 100%;
-  object-fit: contain;
-  aspect-ratio: 1/1;
+  height: 100%;
+  object-fit: cover;
+  /* aspect-ratio: 1/1; */
   /* background: #f1f2f4; */
 }
 
@@ -33,4 +36,15 @@
   font-weight: 400;
   text-align: center;
   margin-top: 10px;
+}
+
+.NewTag {
+  position: absolute;
+  background: #ffaa65;
+  color: white;
+  padding: 0px 10px;
+  left: 0;
+  top: 30px;
+  font-size: 14px !important;
+  font-weight: 300;
 }

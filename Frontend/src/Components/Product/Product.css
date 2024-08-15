@@ -1,7 +1,6 @@
 .Product-Container {
   display: flex;
-  width: 80%;
-  /* align-items: center; */
+  width: 90%;
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
@@ -11,18 +10,15 @@
 .Product {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
-  /* background: pink; */
+  gap: 20px;
   justify-content: center;
 }
 
 .Product-Filter-Options {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
   gap: 45px;
-  height: 120px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .Product-Filter-Options button:nth-child(1) {
@@ -45,29 +41,28 @@
   color: tomato;
 }
 
-.Product-Wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.NO-PRODUCT-FOUND {
+  text-align: center;
+  margin: 200px 0px;
 }
 
-.Pagination button.active {
-  background-color: #000;
-  color: #fff;
-}
-
-.Pagination {
-  margin: 100px 0;
+.Button_Container {
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
 }
 
-.Pagination button {
-  padding: 10px 15px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-color: transparent;
+.Load-More-Button {
+  margin-left: auto;
+  margin-right: auto;
+  border: none !important;
+  width: 200px;
+  outline: none !important;
+  background-color: #0e0e0f !important;
+  color: white !important;
+  margin-top: 80px !important;
+  padding: 12px 0px !important;
+  font-size: 14px !important;
+  border-radius: 0px !important;
 }
