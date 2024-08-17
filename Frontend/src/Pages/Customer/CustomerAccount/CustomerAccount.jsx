@@ -60,7 +60,15 @@ function CustomerAccount() {
     <div
       className={`CustomerAccount-Container ${isEditable ? "editable" : ""}`}
     >
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        newestOnTop={true}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+      />
       <div className="CustomerAccount-Info">
         <div className="CustomerAccount-Wrapper">
           <h2>Account Details</h2>

@@ -55,7 +55,7 @@ function ProductDetail() {
           productName: data.name,
           productPrice: data.price,
           productImage: data.image,
-          productSize: selectedSize, // Include the selected size in the request
+          productSize: selectedSize,
         }
       );
       toast.success("Item added to cart!");
@@ -81,7 +81,15 @@ function ProductDetail() {
 
   return (
     <div className="ProductDetail-Container">
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        newestOnTop={true}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+      />
       <div className="ProductDetail-Wrapper">
         <img src={imgLink} alt={`${data.name} Image`} className="Main-Image" />
         <div className="ProductDetail-Side">

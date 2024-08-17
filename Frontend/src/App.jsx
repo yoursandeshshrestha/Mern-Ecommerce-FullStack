@@ -21,10 +21,21 @@ import Thankyou from "./Pages/Thankyou/Thankyou";
 import CustomerOrder from "./Pages/Customer/CustomerOrder/CustomerOrder";
 import SellerOrders from "./Pages/Seller/SellerOrders/SellerOrders";
 import EditProduct from "./Pages/Seller/EditProduct/EditProduct";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        newestOnTop={true}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+      />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainLayout />}>

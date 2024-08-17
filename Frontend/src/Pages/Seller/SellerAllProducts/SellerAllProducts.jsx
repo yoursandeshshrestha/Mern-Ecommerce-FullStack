@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./SellerAllProducts.css";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify"; // Import ToastContainer and toast
+import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 // Icon
 import Product from "../../../assets/SellerAsset/product.png";
 // Context
@@ -42,9 +44,11 @@ function SellerAllProducts() {
       setData((prevData) =>
         prevData.filter((product) => product._id !== productToDelete)
       );
+      toast.success("Product deleted successfully!"); // Show success toast
       setShowConfirmation(false);
     } catch (error) {
       console.error("Error deleting product", error.message);
+      toast.error("Error deleting product. Please try again."); // Show error toast
     }
   };
 
@@ -120,6 +124,16 @@ function SellerAllProducts() {
           </div>
         </>
       )}
+
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        newestOnTop={true}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+      />
     </div>
   );
 }
