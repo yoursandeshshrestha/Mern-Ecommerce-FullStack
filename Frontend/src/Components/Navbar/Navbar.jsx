@@ -92,11 +92,8 @@ function Navbar() {
         <Link to={"/"}>
           <li>Home</li>
         </Link>
-        <Link to={"/men"}>
-          <li>Mens</li>
-        </Link>
-        <Link to={"/women"}>
-          <li>Women</li>
+        <Link to={"/shop"}>
+          <li>Shop</li>
         </Link>
       </ul>
       <div className="logo">

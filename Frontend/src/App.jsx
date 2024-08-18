@@ -23,6 +23,7 @@ import SellerOrders from "./Pages/Seller/SellerOrders/SellerOrders";
 import EditProduct from "./Pages/Seller/EditProduct/EditProduct";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MainProductSection from "./Pages/MainProuctSection/MainProductSection";
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
           <Route path="kids" element={<Category />} />
           <Route path="cart" element={<Cart />} />
           <Route path="products/:id" element={<ProductDetail />} />
+          <Route path="shop/products/:id" element={<ProductDetail />} />
+          <Route path="shop" element={<MainProductSection />} />
         </Route>
         <Route path="dashboard" element={<SellerLayout />}>
           <Route path="create-product" element={<CreateProduct />} />

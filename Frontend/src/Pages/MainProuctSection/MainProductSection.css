@@ -1,0 +1,223 @@
+/* ========== Container Section ========== */
+.MainProductSection-Container {
+  width: 100%;
+  height: auto;
+}
+
+/* ========== Image Section ========== */
+.MainProductSection-Image {
+  width: 100%;
+  height: 50vh;
+  background-color: #f2f4f3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.MainProductSection-Image h2 {
+  font-size: 40px;
+  font-weight: 500;
+  width: 40%;
+  color: gray;
+}
+
+.MainProductSection-Image img {
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 -70px;
+}
+
+/* ========== Product Section ========== */
+.MainProductSection-Products {
+  width: 67.8%;
+  margin: 30px auto;
+  display: flex;
+  padding: 30px 0;
+}
+
+.MainProductSection-Sidebar {
+  width: 20%;
+  height: auto;
+  padding-right: 40px;
+  border-right: 1px solid #d3d3d3;
+}
+
+.MainProductSection-Wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 9%;
+  z-index: 10;
+  background: rgb(255, 255, 255);
+}
+
+/* ========== Categories Section ========== */
+.Sidebar-Section-One {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.Sidebar-Section-One h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.Sidebar-Section-One p {
+  font-weight: 500;
+  font-size: 17px;
+  color: gray;
+  cursor: pointer;
+}
+
+.Subcategories {
+  padding-left: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.Subcategories p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* ========== Filter by Price Section ========== */
+.Sidebar-Section-Two {
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 30px;
+}
+
+.Sidebar-Section-Two h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.RangeSlider-Container {
+  width: 100%;
+  padding: 0 10px;
+  margin: 20px 0;
+}
+
+.RangeSlider-Track {
+  height: 6px;
+  background: #ccc;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.RangeSlider-Thumb {
+  height: 16px;
+  width: 16px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.PriceRange-Values {
+  display: flex;
+  gap: 30px;
+}
+
+.Sidebar-Section-Two button {
+  margin-top: 15px;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  font-weight: normal;
+  background-color: #f2f4f3;
+  cursor: pointer;
+}
+
+/* ========== Size Selection Section ========== */
+.Sidebar-Section-Three h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.SizeSelection-Buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.SizeButton {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.SizeButton:hover {
+  background-color: #f0f0f0;
+}
+
+.SizeButton.selected {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+/* ========== Main Body Section ========== */
+
+.MainProductSection-Body {
+  padding: 0 30px;
+  width: 80%;
+}
+
+/* ========== Navbar Section ========== */
+
+.MainProductSection-Body-Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 9%;
+  z-index: 10;
+  background: white;
+  padding-bottom: 20px;
+}
+
+.MainProductSection-Body-Navbar p {
+  color: gray;
+}
+
+.MainProductSection-Body-Navbar p span {
+  color: rgb(0, 0, 0);
+}
+
+.MainProductSection-Body-Navbar select {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.MainProductSection-Body-Product-Section {
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.NO-PRODUCT-FOUND-SHOP {
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+  font-size: 25px;
+  font-weight: 500;
+}
