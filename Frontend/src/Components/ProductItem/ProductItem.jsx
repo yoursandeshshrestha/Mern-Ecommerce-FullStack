@@ -8,7 +8,7 @@ function ProductItem(props) {
   const createdDate = new Date(props.createdAt);
   const currentDate = new Date();
   const timeDifference = currentDate - createdDate;
-  const differenceInDays = timeDifference / (1000 * 3600 * 24);
+  const differenceInDays = timeDifference / (4000 * 3600 * 24);
   const isNew = differenceInDays <= 1;
 
   return (
@@ -16,11 +16,11 @@ function ProductItem(props) {
       <div className="Image-Container">
         <img src={imageLink} alt="productImage" />
         {isNew && <p className="NewTag">New</p>}
+        {props.old_price > 0 && <p className="Discounted">Discounted</p>}
       </div>
       <Link to={`products/${props.id}`}>
         <div className="ProductItem-Info">
           <p className="ProductName">{props.name}</p>
-          {/* <p className="ProductCategory">{props.category}</p> */}
           <p className="ProductPrice">
             <span>&#8377;</span>
             {props.new_price}

@@ -33,6 +33,7 @@
 /* ========== Product Section ========== */
 .MainProductSection-Products {
   width: 67.8%;
+
   margin: 30px auto;
   display: flex;
   padding: 30px 0;
@@ -220,4 +221,21 @@
   margin-top: 100px;
   font-size: 25px;
   font-weight: 500;
+}
+
+.MainProductSection-Pagination {
+  /* background: pink; */
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.PaginationButtons button {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  margin-top: 10px;
 }

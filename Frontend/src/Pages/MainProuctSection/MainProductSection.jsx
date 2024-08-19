@@ -6,29 +6,54 @@ import ProductItem from "../../Components/ProductItem/ProductItem";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import { useNavigate } from "react-router-dom";
 
 function MainProductSection() {
   const [showWomenSubcategories, setShowWomenSubcategories] = useState(false);
   const [showMenSubcategories, setShowMenSubcategories] = useState(false);
   const [selectedSizes, setSelectedSizes] = useState([]);
-  const [priceRange, setPriceRange] = useState([10, 100]);
+  const [priceRange, setPriceRange] = useState([0, 10000]);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [totalProducts, setTotalProducts] = useState(0);
   const [selectedGender, setSelectedGender] = useState("");
+  const [sortBy, setSortBy] = useState("");
+  const [order, setOrder] = useState("");
+  const [showDiscounted, setShowDiscounted] = useState(false);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(6);
+
+  const navigate = useNavigate();
+
+  const fetchAll = () => {
+    setSelectedSizes([]);
+    setPriceRange([0, 10000]);
+    setSelectedGender("");
+    setSortBy("");
+    setOrder("");
+    setShowDiscounted(false);
+    setShowWomenSubcategories(false);
+    setShowMenSubcategories(false);
+    setPage(1);
+  };
 
   const toggleWomenSubcategories = () => {
     setShowWomenSubcategories(!showWomenSubcategories);
     setShowMenSubcategories(false);
     setSelectedGender("Women");
+    setShowDiscounted(false);
+    setPage(1);
   };
 
   const toggleMenSubcategories = () => {
     setShowWomenSubcategories(false);
     setShowMenSubcategories(!showMenSubcategories);
     setSelectedGender("Men");
+    setShowDiscounted(false);
+    setPage(1);
   };
 
-  const sizeOptions = ["XS", "S", "M", "L", "XL"];
+  const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
 
   const toggleSizeSelection = (size) => {
     setSelectedSizes((prevSelectedSizes) =>
@@ -38,17 +63,53 @@ function MainProductSection() {
     );
   };
 
+  const handleSortChange = (e) => {
+    const value = e.target.value;
+    if (value === "newest") {
+      setSortBy("createdAt");
+      setOrder("desc");
+      setPage(1);
+    } else if (value === "oldest") {
+      setSortBy("createdAt");
+      setOrder("asc");
+      setPage(1);
+    } else if (value === "priceAsc") {
+      setSortBy("price");
+      setOrder("asc");
+      setPage(1);
+    } else if (value === "priceDesc") {
+      setSortBy("price");
+      setOrder("desc");
+      setPage(1);
+    }
+  };
+
+  const fetchDiscountedProducts = () => {
+    setShowDiscounted(true);
+    setSelectedGender("");
+    setPage(1);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/products?gender=${selectedGender}`
+          `${import.meta.env.VITE_API_URL}/products?${new URLSearchParams({
+            ...(selectedGender && { gender: selectedGender }),
+            ...(sortBy && { sortBy }),
+            ...(order && { order }),
+            ...(selectedSizes.length > 0 && { size: selectedSizes.join(",") }),
+            ...(priceRange[0] && { minPrice: priceRange[0] }),
+            ...(priceRange[1] && { maxPrice: priceRange[1] }),
+            ...(showDiscounted && { discounted: showDiscounted }),
+            page,
+            limit,
+          }).toString()}`
         );
-        console.log(response.data);
 
-        setData(response.data);
-        setLoading(false);
+        setData(response.data.products);
+        setTotalProducts(response.data.totalProducts);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -57,7 +118,41 @@ function MainProductSection() {
     };
 
     fetchData();
-  }, [selectedGender]);
+
+    const params = new URLSearchParams({
+      ...(selectedGender && { gender: selectedGender }),
+      ...(sortBy && { sortBy }),
+      ...(order && { order }),
+      ...(selectedSizes.length > 0 && { size: selectedSizes.join(",") }),
+      ...(priceRange[0] !== undefined && { minPrice: priceRange[0] }),
+      ...(priceRange[1] !== undefined && { maxPrice: priceRange[1] }),
+      ...(showDiscounted && { discounted: showDiscounted }),
+      page,
+      limit,
+    });
+
+    navigate(`?${params.toString()}`, { replace: true });
+  }, [
+    selectedGender,
+    sortBy,
+    order,
+    selectedSizes,
+    priceRange,
+    showDiscounted,
+    navigate,
+    page,
+    limit,
+  ]);
+
+  const handleNextPage = () => {
+    if (page * limit < totalProducts) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    setPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
 
   return (
     <div className="MainProductSection-Container">
@@ -70,6 +165,9 @@ function MainProductSection() {
           <div className="MainProductSection-Wrapper">
             <div className="Sidebar-Section-One">
               <h2>Categories</h2>
+              <p onClick={fetchAll} style={{ cursor: "pointer" }}>
+                All
+              </p>
               <p
                 onClick={toggleWomenSubcategories}
                 style={{ cursor: "pointer" }}
@@ -91,8 +189,12 @@ function MainProductSection() {
                   <p>Top</p>
                 </div>
               )}
-              <p>New Arrivals</p>
-              <p>Discounted Products</p>
+              <p
+                onClick={fetchDiscountedProducts}
+                style={{ cursor: "pointer" }}
+              >
+                Discounted Products
+              </p>
             </div>
             <div className="Sidebar-Section-Two">
               <h2>Filter by Price</h2>
@@ -123,14 +225,16 @@ function MainProductSection() {
                   {priceRange[1]}
                 </p>
               </div>
-              <button>Filter</button>
+              <button onClick={() => setPriceRange([0, 10000])}>
+                Reset Price Filter
+              </button>
             </div>
             <div className="Sidebar-Section-Three">
               <h2>Size</h2>
               <div className="SizeSelection-Buttons">
-                {sizeOptions.map((index, size) => (
+                {sizeOptions.map((size) => (
                   <button
-                    key={index}
+                    key={size}
                     className={`SizeButton ${
                       selectedSizes.includes(size) ? "selected" : ""
                     }`}
@@ -146,14 +250,16 @@ function MainProductSection() {
         <div className="MainProductSection-Body">
           <div className="MainProductSection-Body-Navbar">
             <p>
-              We found <span>{data.length} products</span> for you
+              We found <span>{totalProducts} products</span> for you
             </p>
-            <select name="" id="">
+            <select onChange={handleSortChange}>
               <option value="" disabled>
-                Sort By
+                Sort by
               </option>
-              <option value="">Newest</option>
-              <option value="">Oldest</option>
+              <option value="newest">Newest Arrivals</option>
+              <option value="oldest">Oldest Arrivals</option>
+              <option value="priceAsc">Price: Low to High</option>
+              <option value="priceDesc">Price: High to Low</option>
             </select>
           </div>
           <div className="MainProductSection-Body-Product-Section">
@@ -188,6 +294,24 @@ function MainProductSection() {
               <p className="NO-PRODUCT-FOUND-SHOP">No products available.</p>
             )}
           </div>
+          {totalProducts > 0 && (
+            <div className="MainProductSection-Pagination">
+              <p>
+                Page {page} of {Math.ceil(totalProducts / limit)}
+              </p>
+              <div className="PaginationButtons">
+                <button disabled={page === 1} onClick={handlePreviousPage}>
+                  Previous
+                </button>
+                <button
+                  disabled={page * limit >= totalProducts}
+                  onClick={handleNextPage}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

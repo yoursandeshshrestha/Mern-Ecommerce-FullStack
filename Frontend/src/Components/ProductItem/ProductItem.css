@@ -48,3 +48,14 @@
   font-size: 14px !important;
   font-weight: 300;
 }
+
+.Discounted {
+  position: absolute;
+  background: lightgreen;
+  color: rgb(255, 255, 255);
+  padding: 0px 10px;
+  left: 0;
+  top: 55px;
+  font-size: 14px !important;
+  font-weight: 300;
+}
