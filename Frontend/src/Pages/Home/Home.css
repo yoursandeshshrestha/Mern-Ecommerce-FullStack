@@ -1,7 +1,6 @@
 .Home {
   width: 100%;
   height: 100vh;
-  background-image: url(../../assets/Ecommerce-design-idea/Images/S1.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -11,6 +10,7 @@
   flex-direction: column;
   text-align: center;
   gap: 10px;
+  transition: background-image 1s ease-in-out; /* Animation for smooth transition */
 }
 
 .Home .Title {
