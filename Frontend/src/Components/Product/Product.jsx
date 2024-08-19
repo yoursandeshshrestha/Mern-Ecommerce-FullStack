@@ -27,14 +27,19 @@ function Product() {
           axios.get(`${import.meta.env.VITE_API_URL}/products`),
         ]);
 
+        console.log(productsResponse);
+
         if (page === 1) {
-          setData(productsResponse.data);
+          setData(productsResponse.data.products);
         } else {
-          setData((prevData) => [...prevData, ...productsResponse.data]);
+          setData((prevData) => [
+            ...prevData,
+            ...productsResponse.data.products,
+          ]);
         }
 
-        setTotalProduct(totalResponse.data.length);
-        setHasMore(productsResponse.data.length > 0);
+        setTotalProduct(totalResponse.data.totalProducts);
+        setHasMore(productsResponse.data.totalProducts > 0);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
